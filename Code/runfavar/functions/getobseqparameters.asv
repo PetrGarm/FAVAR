@@ -1,0 +1,47 @@
+function [fload,floadr,rmat]=getobseqparameters(data,pmat,z,fload0,vfload0,vg,tg,rmatin,index)
+NN=cols(data);
+KK=cols(pmat);
+fload=zeros(NN,KK);
+floadr=zeros(NN,1);
+rmat=zeros(NN,1);
+for i=1:NN
+    y=data(:,i);
+    if index(i)==0
+        x=pmat;
+        f0=fload0(1:KK,:);
+        vf0=vfload0(1:KK,1:KK);
+    else
+        x=[pmat z];
+        f0=fload0;
+        vf0=vfload0;
+    end
+   
+    %draw
+    ff=getreg(y,x,f0,vf0,rmatin(i));
+    
+    %save
+    if index(i)==0;
+        fload(i,:)=ff';
+    else
+            fload(i,:)=ff(1:KK-1)';
+        floadr(i,:)=ff(end);
+    end
+    error= y-x*ff;
+    rmati= IG(tg,vg,error);
+    rmat(i)=rmati;
+end
+
+%for identification top K by K block of fload is identity
+fload(1:KK,1:KK)=eye(KK);
+%for identification top K by 1 block of Floadr is zero
+k=1;
+i=1;
+while k<=KK
+    if floadr(i,:) ~=0
+        floadr(i,:)=0;
+        k=k+1;
+    end
+    i=i+1;
+end
+
+

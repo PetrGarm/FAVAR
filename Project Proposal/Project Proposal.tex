@@ -1,0 +1,109 @@
+\documentclass[a4paper, 14pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{wrapfig,lipsum, cleveref}
+\usepackage{icomma} 
+\usepackage{geometry} 
+\usepackage{longtable}
+\usepackage{booktabs}
+
+\geometry{top=25mm}
+\geometry{bottom=25mm}
+\geometry{left=25mm}
+\geometry{right=25mm}
+
+\linespread{1.5}
+
+\setlength{\parindent}{5ex}
+
+
+%% Шрифты
+\usepackage{euscript}	 % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+
+%% Цитирование и библиография
+\usepackage{natbib}
+
+%% Свои команды
+%\DeclareMathOperator{\sgn}{\mathop{sgn}}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+
+\title{Factor Augmented VAR for Forecasting Russian Macroeconomic Time Series}
+\usepackage{cmap}					% поиск в PDF
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english]{babel}			% локализация и переносы
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\author{Petr Garmider}
+\date{\today}
+\begin{document}
+	\newpage
+	\thispagestyle{empty}
+	\begin{center}
+		
+		\vspace{0.1ex}
+		
+		{\textbf{NATIONAL RESEARCH UNIVERSITY HIGHER SCHOOL OF ECONOMICS}}\\
+		\vspace{1ex}
+		{\textbf{The Faculty of Economics Scientce}}\\
+		\vspace{1ex}
+		{\textbf{
+				Department of Applied Economics}}\\
+		
+	\end{center}
+	\vspace{5ex}
+	\begin{center}
+		\vspace{3ex}
+		{\textbf{PROJECT PROPOSAL}}\\
+		\vspace{3ex}
+		{
+			\vspace{2ex} \textbf{FACTOR-AUGMENTED VECTOR AUTOREGRESSION FOR FORECASTING RUSSIAN MACROECONOMIC TIME SERIES.}}
+	\end{center}
+	\begin{flushright}
+		\vspace{13ex}
+		\noindent
+		\textit{Petr Garmider, BEC 165}
+		\\
+		\vspace{5ex}
+		Advisor:\\
+		\vspace{2ex}
+		
+		\textit{Boris Demeshev, \\Senior Lecturer, \\Department of Applied Economics}\\
+		
+		
+	\end{flushright}
+
+	\vspace{64ex}
+	
+	\begin{center}
+		\vspace{3ex}
+		{Moscow}\\
+		\vspace{1ex}{28 February 2020}
+	\end{center}	
+	
+	\newpage
+	
+\section*{Introduction}
+
+Forecasting of macroeconomic time series is an important task for different economic institutions. Accurate forecasts for main macro indicators allows central banks timely react to possible dangers for the economy. Proper actions conducted by central bank may prevent a possible recession or the same way, wrong actions may result in initiating one. Due to the fact that some of its instruments have a delay time after its decision will have an impact on the economy, central banks especially interested in forecasts to be able influence a situation while it is possible. 
+
+Macro indicators forecasts are also useful for commercial companies as well. There are many scenarios in which corporations are particularly interested in understanding of possible future outcomes for macro indicators, such as: choosing the right price policy, signing long-term contracts with counterparties, making decision on a possibility of entering a new market and etc. One cannot deny that a huge amount of financial instruments heavily dependent on macro factors. Investors in attempts to value a particular financial asset always build a forecast of its determinants. By this manner, almost everything to some extent shows comovement with one or another macro factor. This demonstrates that forecasting of macroeconomic time series is extremely crucial part in quite huge range of spheres.  
+
+There are a number of models used for time series prediction. Each model uses different approach of dealing with time series. Some approaches do not require any assumptions about data and are aimed to minimise proper loss function in specific manner. The other includes restrictions on data, assuming, for example, presence of data-generating process with parameters that are to be estimated. State-of-the-art models, usually employs mixed approach such as forecast is based on results of two mentioned methods. Models of the first type show high accuracy of prediction, however fail to interpret its results and prone to outliers. Models of the second type, on the contrary, show moderate accuracy, however give an information about moving forces and produce quite robusts results. The last approach, as one can understand tries to balance between advantages and disadvantages of such approaches. Of course, there are plenty of other models with different view on a data. 
+
+One can divide second type of models onto two subcategories: univariate and multivariate approaches. To make a forecast for considering time series more accurate, the last method tries to use additional data, while first assumes data generating process of a particular series to be a function of past realisations of itself and only. This paper mostly deals with multivariate models: vector auto regression (VAR) suggested by \cite{sims1980martingale} and its variation factor-augmented VAR that is aimed to solve drawbacks of classical version.  
+
+In this paper I will consider factor-augmented vector autoregression (FAVAR): method of estimation, its application for forecasting purposes and accuracy evaluation of produced forecast and its robustness to outliers. Quality of predictions will be tested on validation set then compared with several naive approaches and popular univariate models. 
+ 
+
+\newpage
+\bibliography{bibliography}
+\bibliographystyle{APA}
+\end{document}	
