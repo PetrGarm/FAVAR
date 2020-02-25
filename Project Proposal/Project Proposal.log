@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  24 FEB 2020 18:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  25 FEB 2020 18:15
 entering extended mode
 **"./Project Proposal.tex"
 ("Project Proposal.tex"
@@ -919,25 +919,25 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ) [1
 
-{C:/Users/petrg/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-("Project Proposal.bbl") [3] ("Project Proposal.aux") ) 
+{C:/Users/petrg/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
+("Project Proposal.bbl") [4] ("Project Proposal.aux") ) 
 Here is how much of TeX's memory you used:
- 7222 strings out of 493333
- 110163 string characters out of 3139194
- 276717 words of memory out of 3000000
- 10627 multiletter control sequences out of 15000+200000
+ 7241 strings out of 493333
+ 110693 string characters out of 3139194
+ 278903 words of memory out of 3000000
+ 10646 multiletter control sequences out of 15000+200000
  7752 words of font info for 19 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,4n,25p,1001b,117s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,4n,25p,1322b,129s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\petrg\AppData
 \Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1440.pk> <C:\Users\petrg
 \AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1000.pk> <C:\Use
 rs\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\lati1000.pk>
  <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx
 1000.pk>
-Output written on "Project Proposal.pdf" (3 pages, 51418 bytes).
+Output written on "Project Proposal.pdf" (4 pages, 64467 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
+ 194 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  5 words of extra memory for PDF output out of 10000 (max. 10000000)
 
