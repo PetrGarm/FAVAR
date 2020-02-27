@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  26 FEB 2020 15:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  27 FEB 2020 13:51
 entering extended mode
 **"./Project Proposal.tex"
 ("Project Proposal.tex"
@@ -935,16 +935,16 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 123.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [4]
-("Project Proposal.bbl") [5] ("Project Proposal.aux") ) 
+) [4] [5]
+("Project Proposal.bbl") [6] ("Project Proposal.aux") ) 
 Here is how much of TeX's memory you used:
  7349 strings out of 493333
  112264 string characters out of 3139194
- 278943 words of memory out of 3000000
+ 279943 words of memory out of 3000000
  10693 multiletter control sequences out of 15000+200000
  17408 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,8n,25p,1322b,186s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,8n,25p,1395b,186s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\petrg\AppData
 \Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm0800.pk> <C:\Users\petrg
 \AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm0600.pk> <C:\Use
@@ -962,9 +962,9 @@ s/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr1
 Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Project Proposal.pdf" (5 pages, 143118 bytes).
+Output written on "Project Proposal.pdf" (6 pages, 147634 bytes).
 PDF statistics:
- 278 PDF objects out of 1000 (max. 8388607)
+ 285 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

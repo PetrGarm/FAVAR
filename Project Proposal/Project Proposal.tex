@@ -136,6 +136,19 @@ There are several ways to estimate FAVAR model. \cite{bernanke2005measuring} in 
 
 Particular properties of two-step approach estimation makes unclear distribution of estimated coefficients, therefore building right confident intervals becomes separate task. \cite{bernanke2005measuring} use bootstrap procedure for obtaining impulse response function intervals, the same is possible to apply for predictive confident intervals, however that is out of the scope of this paper. One need a rich dataset to test statistically correctness of build intervals, which is not the case in dataset available.
 
+\section*{Results anticipated}
+
+I expect factor-augmented VAR to be quite sensitive to a number of latent factor, that is exogenous parameter of the model. Therefore, prediction score will fluctuate significantly for different model variations. Operating with small sample set makes it hard to hope that FAVAR may outperform ARIMA class models, even automated ARIMA implemented in "forecast" R package. At the same time, it is important to note that ARIMA is not restricted model of FAVAR and the opposite is also not true. However, I can believe that FAVAR may outperform ARIMA on long-term forecasts, as similar results were obtained in several papers. I reckon, FAVAR shows better prediction power than univariate AR models and those of multivariate. These can be considered as restricted to FAVAR, therefore I expect to see an improvement. One possible problem I may face here is again small number of observations. Since FAVAR (VAR with latent factors) has much more parameters to estimate than traditional univariate models, it is necessary to have at least enough observations to be able get estimates at all. Then efficiency of obtained estimates is highly dependent on sample size. Thus, it may be the case I will have to chose short models, using less number of lags and factors. Nonetheless, FAVAR should outperform naive benchmarks, which is not always true for traditional VAR approach.
+
+What for the robustness, it is hard to build any reasonable expectations about it. Result I get in this section is just a number, showing how much results are different in percents. It is obvious that it directly depends on variance of white noise original data will be distorted by, for this reason it will be difficult to interpret it. Still, there is reason to suppose that FAVAR model is resistant in some way to noises in data. Approach suggest procedure that include extracting main factors are believed to drive the economy, which may be almost unaffected by data distortion. 
+
+\section*{Conclusion}
+The approach under consideration allows to account for main VAR problem, making it possible to include a large number of variables in the model. Proposed methodology makes it possible to test statistically whether additional procedure of latent factors recovery is worth, yet remain unclear on meaning of those. Time series cross validation on different forecast periods method makes it possible to distinguish models' performance on short-term and long-term horizons, so researcher could use different models for each forecast period to improve overall accuracy. 
+
+I can also answer the question of FAVAR robustness and results exposure to data noise according to specified criteria. Such information may be helpful for those using it for building actual forecasts, since last observations of plenty time series are object fors several revisions, meaning that econometrician faces some data noise even in non-experimental environment. 
+
+All results are representable as numbers, so one can numerically weigh pros and cons of the model in question, while making a decision of whether to use FAVAR in particular case is worth.
+
 \newpage
 \bibliography{bibliography}
 \bibliographystyle{APA}
