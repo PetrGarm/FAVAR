@@ -6,11 +6,15 @@
 \usepackage{geometry} 
 \usepackage{longtable}
 \usepackage{booktabs}
+\usepackage{titling} % abstract 
+\usepackage{mathptmx} % TNR
 
+\usepackage[14pt]{extsizes} % Возможность сделать 14-й шрифт
 \geometry{top=25mm}
 \geometry{bottom=25mm}
 \geometry{left=25mm}
 \geometry{right=25mm}
+
 
 \linespread{1.5}
 
@@ -52,7 +56,7 @@
 		
 		{\textbf{NATIONAL RESEARCH UNIVERSITY HIGHER SCHOOL OF ECONOMICS}}\\
 		\vspace{1ex}
-		{\textbf{The Faculty of Economics Scientce}}\\
+		{\textbf{The Faculty of Economics Science}}\\
 		\vspace{1ex}
 		{\textbf{
 				Department of Applied Economics}}\\
@@ -67,7 +71,7 @@
 			\vspace{2ex} \textbf{FACTOR-AUGMENTED VECTOR AUTOREGRESSION FOR FORECASTING RUSSIAN MACROECONOMIC TIME SERIES.}}
 	\end{center}
 	\begin{flushright}
-		\vspace{13ex}
+		\vspace{5ex}
 		\noindent
 		\textit{Petr Garmider, BEC 165}
 		\\
@@ -80,7 +84,7 @@
 		
 	\end{flushright}
 
-	\vspace{64ex}
+	\vspace{18ex}
 	
 	\begin{center}
 		\vspace{3ex}
@@ -90,24 +94,27 @@
 	
 	\newpage
 	
+\begin{abstract}
+	There is a number of models used for time series forecasts that focuses on incorporating a huge set of information. Conventional VAR fails to employ such an approach because of "degrees of freedom" problem. The focus of this paper is to test factor-augmented VAR's ability to forecast main Russian macroeconomic indicators and check its robustness to data noise. Results will be presented in a table of RMSE's for different horizons using time series cross validation procedure for each one. There are reasons to believe, that FAVAR will show better results than univariate models in long-term forecasts. 
+\end{abstract}
 \section*{Introduction}
 
 Forecasting of macroeconomic time series is an important task for different economic institutions. Accurate forecasts for main macro indicators allows central banks timely react to possible dangers for the economy. Proper actions conducted by central bank may prevent a possible recession or the same way, wrong actions may result in initiating one. Due to the fact that some of its instruments have a delay time after its decision will have an impact on the economy, central banks especially interested in forecasts to be able influence a situation while it is possible. 
 
-Macro indicators forecasts are also useful for commercial companies as well. There are many scenarios in which corporations are particularly interested in understanding of possible future outcomes for macro indicators, such as: choosing the right price policy, signing long-term contracts with counterparties, making decision on a possibility of to enter a new market and etc. One cannot deny that a huge amount of financial instruments heavily dependent on macro factors. Investors in attempts to value a particular financial asset always build a forecast of its determinants. By this way, almost everything to some extent shows comovement with one or another macro factor. This demonstrates that forecasting of macroeconomic time series is extremely crucial part in quite huge range of spheres.  
+Macro indicators forecasts are also useful for commercial companies as well. There are many scenarios in which corporations are particularly interested in understanding of possible future macro factor outcomes, such as: choosing the right price policy, signing long-term contracts with counterparties, making decision on a possibility of entering a new market and etc. One cannot deny that a huge amount of financial instruments heavily dependent on macroeconomic situation within the country. Investors in attempts to value a particular financial asset always build a forecast of its determinants. By this way, almost everything to some extent shows comovement with one or another macro factor. This demonstrates that forecasting of macroeconomic time series is extremely crucial part in quite huge range of spheres.  
 
-There are a number of models used for time series prediction. Each model uses different approach of dealing with time series. Some approaches do not require any assumptions about data and aimed to minimise proper loss function in specific manner. The other includes restrictions on data, assuming, for example, presence of data-generating process with parameters that are to be estimated. State-of-the-art models, usually employs mixed approach such as forecast is based on results of two mentioned methods. Models of the first type show high accuracy of prediction, however fail to interpret its results and prone to outliers. Models of the second type, on the contrary, show moderate accuracy, however give an information about moving forces and produce quite robust results. The last approach, as one can understand tries to balance between advantages and disadvantages of such approaches. Of course, there are plenty of other models with different view on a data. 
+There are a number of models used for time series prediction. Each model uses different approach of dealing with time series. Some approaches do not require any assumptions about data and aimed to minimise proper loss function in specific manner. The other includes restrictions on data, assuming, for example, presence of data-generating process with parameters that are to be estimated. State-of-the-art models, usually employ mixed approach such as forecast is based on results of two mentioned methods. Models of the first type show high accuracy of prediction, however fail to interpret its results and prone to outliers. Models of the second type, on the contrary, show moderate accuracy, however give an information about moving forces and produce quite robust results. The last approach, as one can understand tries to balance between advantages and disadvantages of such approaches. Of course, there are plenty of other models with different view on a data. 
 
-One can divide second type of models onto two subcategories: univariate and multivariate approaches. To make a forecast for considering time series more accurate, the last method tries to use additional data, while first assumes data generating process of a particular series to be a function of past realisations of itself and only. This paper mostly deals with multivariate models: vector auto regression (VAR) suggested by \cite{sims1980martingale} and its variation factor-augmented VAR that aimed to solve drawbacks of classical version.  
+One can divide second type of models onto two subcategories: univariate and multivariate. To make a forecast for the considering time series more accurate, the last method tries to use additional data, while first assumes data generating process of a particular series to be a function of past realisations of itself and only. This paper mostly deals with multivariate models: vector auto regression (VAR) suggested by \cite{sims1980martingale} and its variation factor-augmented VAR that aimed to eliminate drawbacks of classical version.  
 
 In this paper I will consider factor-augmented vector autoregression (FAVAR): method of estimation, its application for forecasting purposes and accuracy evaluation of produced forecast and its robustness to outliers. There is no academic literature that uses FAVAR model for Russian macroeconomic time series prediction. The goal is to understand, whether factor model outperform univariate approach. One also may be interested in comparing classical VAR with its augmented version. It will be shown, that VAR is restricted model of FAVAR, therefore it is possible to test whether difference between the two is statistically significant. 
  
 \section*{Literature review}
-There are several studies that discuss FAVAR model and employs its potential for particular purposes. \cite{bernanke2005measuring} were first to introduce a model to incorporate a huge set of information to assess structural shocks effect on monetary policy. They discuss \cite{sims1992interpreting} and his interpretation of "price puzzle", when several works showed that VAR models predict that contractionary monetary policy shock is followed by rise in price level, rather than decrease as traditional macroeconomic theory suggests. Authors believe that explanation proposed by the inventor of VAR still has weak sides, therefore suggest their own way to deal with "price puzzle". In the paper authors used 120 monthly time series pointing out that central banks while making decisions on interest rate act in "data rich environment", considering a larger set of time series than standard VAR approach allows to include. Therefore, econometrician, ignoring this fact, faces with a problem of biased estimates. They suggested two ways of how FAVAR can be estimated and one of them will be presented as pseudo-code in this work. The main goal of model inventors was to obtain correct impulse responses for variables of interest rather than producing forecasts for them. 
+There are several studies that discuss FAVAR model and employ its potential for particular purposes. \cite{bernanke2005measuring} were first to introduce a model to incorporate a huge set of information to assess structural shocks effect on monetary policy. They discuss \cite{sims1992interpreting} and his interpretation of "price puzzle", when several papers showed that VAR models predict that contractionary monetary policy shock is followed by rise in price level, rather than decrease as traditional macroeconomic theory suggests. Authors believe that explanation proposed by the inventor of VAR yet had weak points, therefore suggest their own way to deal with "price puzzle". In the paper authors used 120 monthly time series pointing out that central banks while making decisions on interest rate act in "data rich environment", considering a larger set of time series than standard VAR approach allows to include. Therefore, econometrician, ignoring this fact, faces with a problem of biased estimates. They suggested two ways of how FAVAR can be estimated and one of them will be presented as pseudo-code in this work. The main goal of model inventors was to obtain correct impulse responses for variables of interest rather than producing forecasts for them. 
 
-Nevertheless, there are some works focused on applying considering model for prediction task as well, for example,  \cite{monch2008forecasting} in his work uses FAVAR to forecast yield curve. Authors mentions that state-of-the-art models in this sphere have a large number of parameters to estimate, which means that user cannot simply include as many explanatory variable as one wishes, so there is a risk to lose important information. Therefore, author used approach of latent factor extraction described in \cite{bernanke2005measuring} and mixed this with traditional models for yield curve prediction. 
+Nevertheless, there are some works focused on applying considering model for prediction task as well, for example,  \cite{monch2008forecasting} in his work uses FAVAR to forecast yield curve. Author mentions that state-of-the-art models in this sphere have a large number of parameters to estimate, which means that user cannot simply include as many explanatory variable as one wishes, so there is a risk to lose important information. Therefore, author used approach of latent factor extraction described in \cite{bernanke2005measuring} and mixed it with traditional models for yield curve prediction. 
 
-What for the time series prediction, most of the papers agree, that factor-augmented VAR shows better performance for long-term forecasts. In \cite{figueiredo2013forecasting} FAVAR is used for time series forecasting of Brazilian consumer inflation (IPCA). Authors found that factor based models outperform those of traditional AR ones on long horizons. They also considered estimation methods pointing out that ML approach strictly outperforms two-step PCA method, that is the focus of study in this paper. \cite{pang2010forecasting} employed factor model for predicting GDP growth rate, unemployment and inflation rates of the Hong Kong economy. Author's results are in line with those obtained in \cite{figueiredo2013forecasting} -- FAVAR performs better than simple VAR and AR models especially for long horizons. Author used 76 mothly variables that are believed to reflect economic situation in Hong Kong. Concerning to data transformation, author followed methodology suggested in \cite{stock2005implications}.
+What for the time series prediction, most of the papers agree, that factor-augmented VAR shows better performance for long-term forecasts. In \cite{figueiredo2013forecasting} FAVAR is used for time series forecasting of Brazilian consumer inflation (IPCA). Authors found that factor based models outperform those of traditional AR ones on long horizons. They also considered estimation methods pointing out that ML approach strictly outperforms two-step PCA method, that is the focus of study in this paper. \cite{pang2010forecasting} employed factor model for predicting GDP growth rate, unemployment and inflation rates of the Hong Kong economy. Author's results are in line with those obtained in \cite{figueiredo2013forecasting} -- FAVAR performs better than simple VAR and AR models especially for long horizons. Author used 76 mothly variables that are believed to reflect economic situation in Hong Kong. Transforming original data, author followed methodology suggested in \cite{stock2005implications}.
 
 \cite{berggren2016can} in their paper computed Diebold-Mariano test of equal predictive accuracy, comparing FAVAR with benchmark models. Authors found, that forecast performance of FAVAR was not statistically better than traditional VAR or AR models. Nonetheless, they claim that further research should be done towards optimal number of lags for the factors, since they found that FAVAR with only one lag for factors performed statistically better than with twelve.  
 
@@ -116,10 +123,10 @@ Overall, literature suggest that potential of FAVAR model for time series predic
 \subsection*{Methods}
 There are several approaches to measure quality of time series prediction models. Each method, however, captures one side of the model. Speaking about conventional time series cross validation, one may argue that it tests model's short-term prediction power, since it assesses one-step-ahead forecast. Traditional train test split is quite sensitive to split proportion and also to structural changes occured after the end of training set. For this reason, it is not fully accurate to perform any of this method in their traditional form. 
 
-Nonetheless, it is possible to account for long-term prediction power performing time-series cross validation and treat a forecast for each horizon separately. Still results of such procedure may be argued, since a robust estimate of a model's accuracy requires a large number of observations that is problematic for Russian datasets. So, to address this issue models will be measured on producing semi-annual forecast as the longest one. 
+Nonetheless, it is possible to account for long-term prediction power performing time-series cross validation and treat a forecast for each horizon separately. Still results of such procedure may be argued, since a robust estimate of a model's accuracy requires a large number of observations that is problematic for Russian data available. So, to address this issue models will be measured on semi-annual forecasts as the longest one. 
 
 Forecasts are measured on RMSE (root of mean square error) metric
-as results it produces are interpretable. Chosen measure will be evaluated for different horizons separately. The formula for h-th horizon as follows:
+as it is quite interpretable. Chosen measure will be evaluated for different horizons separately. The formula for h-th horizon as follows:
 \[
 	RMSE = 
 	\sqrt{
@@ -128,26 +135,28 @@ as results it produces are interpretable. Chosen measure will be evaluated for d
 			\Big[
 			y_t - \widehat{y_{t|t-h}}
 			\Big]^2}
-\] where ts -- test set size, $\widehat{y_{t|t-h}}$ -- forecast for period t having available information up to the moment $t-h$.
+\] where ts -- hold-out set size, $\widehat{y_{t|t-h}}$ -- forecast for period t having available information up to the moment $t-h$.
 
-This paper also considers the question of performance robustness. For this task, I use simple approach since this is not the main focus. Original data\footnote{Except for variables being forecasted} will be distorted by adding random noise processes to it. Then models will be reestimated and obtained new accuracy measures will be compared with those of pure data based. Though, this approach lacks theoretical basis, as one cannot state whether changes are statistically significant, yet is useful at least as a rough measure.
+This paper also considers the question of robustness. For this task, I use simple approach since this is not the main focus. Original data\footnote{Except for variables being forecasted} will be distorted by adding random noise processes to it. Then models will be reestimated and obtained new accuracy measures will be compared with those of pure data based. Though, this approach lacks theoretical basis, as one cannot state whether changes are statistically significant, yet is useful at least as a rough measure.
 
-There are several ways to estimate FAVAR model. \cite{bernanke2005measuring} in their work consider two, that are two-step estimation using principal components analysis to recover latent factors and one-step Bayesian likelihood approach estimation. Authors stated that they found no obvious evidence of one method be strictly preferred to another and weather computational cost of the first one worths it. Since cross-validation requires multiple reestimation, I simply choose approach that is less time consuming. 
+There are several ways to estimate FAVAR model. \cite{bernanke2005measuring} in their work consider two, that are two-step estimation using principal components analysis to recover latent factors and one-step Bayesian likelihood approach estimation. Authors stated that they found no obvious evidence of one method being superior to another and weather computational cost of the first one worths it. Since cross-validation requires multiple reestimation, I simply choose approach that is less time consuming. 
 
 Particular properties of two-step approach estimation makes unclear distribution of estimated coefficients, therefore building right confident intervals becomes separate task. \cite{bernanke2005measuring} use bootstrap procedure for obtaining impulse response function intervals, the same is possible to apply for predictive confident intervals, however that is out of the scope of this paper. One need a rich dataset to test statistically correctness of build intervals, which is not the case in dataset available.
 
 \section*{Results anticipated}
 
-I expect factor-augmented VAR to be quite sensitive to a number of latent factor, that is exogenous parameter of the model. Therefore, prediction score will fluctuate significantly for different model variations. Operating with small sample set makes it hard to hope that FAVAR may outperform ARIMA class models, even automated ARIMA implemented in "forecast" R package. At the same time, it is important to note that ARIMA is not restricted model of FAVAR and the opposite is also not true. However, I can believe that FAVAR may outperform ARIMA on long-term forecasts, as similar results were obtained in several papers. I reckon, FAVAR shows better prediction power than univariate AR models and those of multivariate. These can be considered as restricted to FAVAR, therefore I expect to see an improvement. One possible problem I may face here is again small number of observations. Since FAVAR (VAR with latent factors) has much more parameters to estimate than traditional univariate models, it is necessary to have at least enough observations to be able get estimates at all. Then efficiency of obtained estimates is highly dependent on sample size. Thus, it may be the case I will have to chose short models, using less number of lags and factors. Nonetheless, FAVAR should outperform naive benchmarks, which is not always true for traditional VAR approach.
+I expect factor-augmented VAR to be quite sensitive to a number of latent factor, that is exogenous parameter of the model. Therefore, prediction score will fluctuate significantly for different model variations. Operating with small sample set makes it hard to hope that FAVAR may outperform ARIMA class models, even automated ARIMA implemented in "forecast" R package. At the same time, it is important to note that ARIMA is not restricted model of FAVAR and the opposite is also not true. However, I can believe that FAVAR may outperform ARIMA on long-term forecasts, as similar results were obtained in several papers. I reckon, FAVAR shows better prediction power than univariate AR models and those of multivariate. These are as restricted to FAVAR, therefore I expect to see an improvement. One possible problem I may face here is again small number of observations. Since FAVAR (VAR with latent factors) has much more parameters to estimate than traditional univariate models, it is necessary to have at least enough observations to be able get estimates at all. Then efficiency of obtained estimates is highly dependent on a sample size. Thus, it may be the case I will have to chose short models, using less number of lags and factors. Nonetheless, FAVAR should outperform naive benchmarks, which is not always true for traditional VAR approach.
 
 What for the robustness, it is hard to build any reasonable expectations about it. Result I get in this section is just a number, showing how much results are different in percents. It is obvious that it directly depends on variance of white noise original data will be distorted by, for this reason it will be difficult to interpret it. Still, there is reason to suppose that FAVAR model is resistant in some way to noises in data. Approach suggest procedure that include extracting main factors are believed to drive the economy, which may be almost unaffected by data distortion. 
 
 \section*{Conclusion}
 The approach under consideration allows to account for main VAR problem, making it possible to include a large number of variables in the model. Proposed methodology makes it possible to test statistically whether additional procedure of latent factors recovery is worth, yet remain unclear on meaning of those. Time series cross validation on different forecast periods method makes it possible to distinguish models' performance on short-term and long-term horizons, so researcher could use different models for each forecast period to improve overall accuracy. 
 
-I can also answer the question of FAVAR robustness and results exposure to data noise according to specified criteria. Such information may be helpful for those using it for building actual forecasts, since last observations of plenty time series are object fors several revisions, meaning that econometrician faces some data noise even in non-experimental environment. 
+I can also answer the question of FAVAR robustness and results exposure to data noise according to specified criteria. Such information may be helpful for those using it for building actual forecasts, since last observations of plenty time series are object for several revisions, meaning that econometrician faces some data noise even in non-experimental environment. 
 
-All results are representable as numbers, so one can numerically weigh pros and cons of the model in question, while making a decision of whether to use FAVAR in particular case is worth.
+All results are representable as numbers, so one can numerically weigh pros and cons of the model in question, while making a decision of whether using FAVAR in particular case is worth.
+
+Word count 2005
 
 \newpage
 \bibliography{bibliography}
