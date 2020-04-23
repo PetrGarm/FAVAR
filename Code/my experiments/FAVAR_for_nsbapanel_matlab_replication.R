@@ -75,6 +75,7 @@ Ffast_ktimes = matrix(rep(Ffast, K), ncol = K)
 coeffs = matrix(rep(coeffs, dim(Ffast_ktimes)[1]), ncol=K, byrow = TRUE)
 Fr = F0 - Ffast_ktimes*coeffs
 
+# FAVAR with clean factors
 Y_for_VAR = cbind(Fr, Y)
 VARselect(Y_for_VAR)
 p = 3 
