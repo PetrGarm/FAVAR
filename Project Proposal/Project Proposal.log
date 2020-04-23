@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  28 FEB 2020 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  20 MAR 2020 11:14
 entering extended mode
 **"./Project Proposal.tex"
 ("Project Proposal.tex"
@@ -1045,7 +1045,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  7602 strings out of 493333
  117947 string characters out of 3139194
- 279785 words of memory out of 3000000
+ 279782 words of memory out of 3000000
  10891 multiletter control sequences out of 15000+200000
  37704 words of font info for 93 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1065,9 +1065,9 @@ ts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbo
 ls/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Project Proposal.pdf" (10 pages, 122554 bytes).
+Output written on "Project Proposal.pdf" (10 pages, 121444 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
+ 255 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
