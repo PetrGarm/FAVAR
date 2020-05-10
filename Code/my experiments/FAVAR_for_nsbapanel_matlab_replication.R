@@ -8,7 +8,7 @@ ts <- ts(df, start = c(1959,1), freq = 12)
 
 # Standardize for some reason (correct PCA extraction probably)
 for (i in 1:120){
-  ts[,i] <- (ts[,i] - mean(ts[,i]))/sd(ts[,i])
+  ts[,i] <- (ts[,i] - mean(ts[,i])) / sd(ts[,i])
 }
 
 ggAcf(ts[,1])
@@ -33,7 +33,6 @@ ts.plot(Y[,3])
 
 
 K = 3 # Number of factors
-lags = 13 # in VAR
 N = dim(X)[2]
 M = dim(Y)[2]
 T = dim(X)[1]
@@ -47,8 +46,7 @@ eig_val <- spectral_decomposition$values
 lam <- 1/sqrt(N) * eig_vec[,(1:K)]
 F0 <- data.matrix(X) %*% lam 
 
-X_slow <- ts[,slow_index_not_y]
-
+#extract PC from X_slow
 XtX = t(X_slow) %*% X_slow
 spectral_decomposition <- eigen(XtX)
 eig_vec <- spectral_decomposition$vectors
@@ -60,8 +58,8 @@ Fslow0 <- data.matrix(X_slow) %*% lam
 
 # Factors rotation 
 ones_vec = rep(1, T)
-Ffast = data.matrix(Y[,3])
-k1 = 1 # ? ?? ?
+Ffast = data.matrix(Y[,3]) # interest rate
+k1 = dim(Ffast)[2] # (num of Ffast)
 ly = cbind(ones_vec, Ffast, Fslow0)
 
 svd <- svd(ly)
@@ -72,20 +70,21 @@ vr <- svd$v
 b = (vr * matrix(data = rep(d, dim(vr)[1]), ncol = dim(vr)[1], byrow = TRUE)) %*% (t(vl) %*% F0)
 
 Ffast_ktimes = matrix(rep(Ffast, K), ncol = K)
-coeffs = matrix(rep(coeffs, dim(Ffast_ktimes)[1]), ncol=K, byrow = TRUE)
+coeffs = matrix(rep(b[2:(k1+1),], dim(Ffast_ktimes)[1]), ncol=K, byrow = TRUE)
 Fr = F0 - Ffast_ktimes*coeffs
 
 # FAVAR with clean factors
 Y_for_VAR = cbind(Fr, Y)
-VARselect(Y_for_VAR)
-p = 3 
+p = VARselect(Y_for_VAR)$selection[1] # according AIC 
 
-var <- VAR(Y_for_VAR, p)
+var <- VAR(Y_for_VAR, 3)
 summary(var)
 
 causality(var, 'Fr.Series.1')
 causality(var, 'Fr.Series.2')
 causality(var, 'Fr.Series.3')
 
-y_hat = forecast(var, h=12)
-autoplot(y_hat$forecast$Y.IP,) + ggtitle("US IP forecast from FAVAR(3)[k=3]") + ylab("US IP")
+y_hat = forecast(var, h=1)
+autoplot(y_hat$forecast$Y.IP) + ggtitle("US IP forecast from FAVAR(3)[k=3]") + ylab("US IP")
+
+
