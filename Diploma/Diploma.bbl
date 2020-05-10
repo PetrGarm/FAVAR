@@ -1,0 +1,51 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\astroncite{Berggren and Lodenius}{2016}]{berggren2016can}
+Berggren, E. and Lodenius, E. (2016).
+\newblock Can favar improve swedish inflation forecasting?
+
+\bibitem[\protect\astroncite{Bernanke et~al.}{2005}]{bernanke2005measuring}
+Bernanke, B.~S., Boivin, J., and Eliasz, P. (2005).
+\newblock Measuring the effects of monetary policy: a factor-augmented vector
+  autoregressive (favar) approach.
+\newblock {\em The Quarterly journal of economics}, 120(1):387--422.
+
+\bibitem[\protect\astroncite{Figueiredo and
+  Guill{\'e}n}{2013}]{figueiredo2013forecasting}
+Figueiredo, F. M.~R. and Guill{\'e}n, O. (2013).
+\newblock Forecasting brazilian consumer inflation with favar models using
+  target variables.
+\newblock Technical report, mimeo.
+
+\bibitem[\protect\astroncite{M{\"o}nch}{2008}]{monch2008forecasting}
+M{\"o}nch, E. (2008).
+\newblock Forecasting the yield curve in a data-rich environment: A
+  no-arbitrage factor-augmented var approach.
+\newblock {\em Journal of Econometrics}, 146(1):26--43.
+
+\bibitem[\protect\astroncite{Pang}{2010}]{pang2010forecasting}
+Pang, I. A.~J. (2010).
+\newblock Forecasting hong kong economy using factor augmented vector
+  autoregression.
+
+\bibitem[\protect\astroncite{Sims}{1980}]{sims1980martingale}
+Sims, C.~A. (1980).
+\newblock Martingale-like behavior of prices.
+
+\bibitem[\protect\astroncite{Sims}{1992}]{sims1992interpreting}
+Sims, C.~A. (1992).
+\newblock Interpreting the macroeconomic time series facts: The effects of
+  monetary policy.
+\newblock {\em European economic review}, 36(5):975--1000.
+
+\bibitem[\protect\astroncite{Stock and Watson}{2002}]{stock2002macroeconomic}
+Stock, J.~H. and Watson, M.~W. (2002).
+\newblock Macroeconomic forecasting using diffusion indexes.
+\newblock {\em Journal of Business \& Economic Statistics}, 20(2):147--162.
+
+\bibitem[\protect\astroncite{Stock and Watson}{2005}]{stock2005implications}
+Stock, J.~H. and Watson, M.~W. (2005).
+\newblock Implications of dynamic factor models for var analysis.
+\newblock Technical report, National Bureau of Economic Research.
+
+\end{thebibliography}
