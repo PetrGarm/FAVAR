@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  11 MAY 2020 00:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  11 MAY 2020 20:18
 entering extended mode
 **./Diploma.tex
 (Diploma.tex
@@ -1037,17 +1037,17 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 153.
  [7] [8]
-[9] [10] [11] [12] (Diploma.bbl) [13] (Diploma.aux)
+[9] [10] [11] [12] [13] [14] (Diploma.bbl) [15] (Diploma.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 7632 strings out of 493333
- 118189 string characters out of 3139194
- 281031 words of memory out of 3000000
- 10911 multiletter control sequences out of 15000+200000
- 43739 words of font info for 102 fonts, out of 3000000 for 9000
+ 7643 strings out of 493333
+ 118300 string characters out of 3139194
+ 282202 words of memory out of 3000000
+ 10919 multiletter control sequences out of 15000+200000
+ 45447 words of font info for 105 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,10n,25p,1487b,245s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\la
@@ -1067,9 +1067,9 @@ sy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm1
 Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on Diploma.pdf (13 pages, 173483 bytes).
+Output written on Diploma.pdf (15 pages, 180162 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
+ 326 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

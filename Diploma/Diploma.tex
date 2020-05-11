@@ -189,7 +189,7 @@ Authors in \cite{bernanke2005measuring} propose two ways of FAVAR estimation. Th
 Two-stage estimation approach includes:
 \begin{enumerate}
 	\item Extraction of factors $F_t$ from $X_t$, purifying it from the influence of $Y_t$.\footnote{To get only additional infromation about ecnomy dynamics, that is not captured by $Y_t$} \label{stage1}
-	\item Estimation of \eqref{favar1}, using obtained $\hat{F_t}$ by standard VAR methods.
+	\item Estimation of \eqref{favar1}, using obtained $\hat{F_t}$ by standard VAR methods. \label{stage2}
 \end{enumerate}
 In order to perform stage \ref{stage1} one should use the equation \eqref{favar2} and exploit the fact that $(X_t', Y_t')$ is observable vector for each period t. Let us remind once again equation \eqref{favar2}:
 \[X_t = \Lambda^f F_t + \Lambda^y Y_t + e_t\]
@@ -210,17 +210,88 @@ F_t \\
 Y_t 
 \end{bmatrix}$.
 
-The idea is if econometrician came up with such $\hat{\Lambda}$ and $\hat{\alpha_t}$ that $\hat{e_t}$ is a small number for all t, then such estimates of \eqref{favar2} are "good". Then, let us then set the following minimization task: 
+The idea is if econometrician came up with such $\hat{\Lambda}$ and $\hat{\alpha_t}$ that $\hat{e_t}$ is a small number for all t, then such estimates of \eqref{favar2} are "good". Assume $X_t$ is normalized to have zero mean: $\sum_{t=1}^{T} X_t = \begin{pmatrix} 
+0 \dots 0
+\end{pmatrix}'_{N \times 1}$. \noindent Then, let us then set the following minimization task: 
 \begin{equation}\label{pca_eq}
-\sum_{t=1}^{T} (X_t - \Lambda \alpha_t)'(X_t - \Lambda \alpha_t) \rightarrow \min_{\Lambda,\text{ }p_t} 
+\sum_{t=1}^{T} (X_t - \Lambda \alpha_t)'(X_t - \Lambda \alpha_t) \rightarrow \min_{\Lambda,\text{ } \alpha_1, \alpha_2 \dotsc \alpha_T} 
 \end{equation}
 It is worth noting that \eqref{pca_eq} has in total $(K+M)  N+ (K+M) T$ number of parameters for estimation. It is also important to note, that there are infinite number of solutions for such optimization task. If we came up with a solution to \eqref{pca_eq} in form $(\tilde{\Lambda}, \widetilde{\alpha})$ then for any $Z$: $Z'Z=I \implies (\tilde{\Lambda} Z',Z\widetilde{\alpha})$ is also solution of \eqref{pca_eq}. Thus let us impose restriction on $\Lambda$: $\Lambda'\Lambda = I$, which basically means we are trying to obtain orthogonal  and normalised unit-scale vectors. Problem \eqref{pca_eq} transforms to: 
 \begin{equation}\label{pca_constr}
 	\begin{cases}
-		\sum_{t=1}^{T} (X_t - \Lambda \alpha_t)'(X_t - \Lambda \alpha_t) \rightarrow \min_{\Lambda,\text{ } C_t} \\
+		\sum_{t=1}^{T} (X_t - \Lambda \alpha_t)'(X_t - \Lambda \alpha_t) \rightarrow \min_{\Lambda,\text{ } \alpha_1, \alpha_2 \dotsc \alpha_T} \\
 		s.t. \text{ } \Lambda'\Lambda = I
 	\end{cases}
 \end{equation}
+Assuming solution $\hat{\Lambda}$ being known, optimal $\hat{\alpha_t} = (\Lambda' \Lambda)^{-1}\Lambda'X_t$. Since $\alpha_t$ does not affect other periods error, then we  can treat \eqref{pca_eq} as $T$ independent minimization problems, such for fixed period $t$: 
+\begin{equation} \label{pca_ols}
+(X_t - \Lambda \alpha_t)'(X_t - \Lambda \alpha_t) \rightarrow \min_{ \alpha_t}
+\end{equation}
+With known $\Lambda$, problem \eqref{pca_ols} becomes nothing but simple least-squares task with know analytic solution. Thus, \eqref{pca_constr} transforms to:
+\begin{equation}
+	\begin{cases}
+	\sum_{t=1}^{T} (X_t - \Lambda (\Lambda' \Lambda)^{-1}\Lambda'X_t)'(X_t - \Lambda (\Lambda' \Lambda)^{-1}\Lambda'X_t) \rightarrow \min_{\Lambda} \\
+	s.t. \text{ } \Lambda'\Lambda = I
+	\end{cases}
+\end{equation}
+
+\begin{equation} \label{pca_simp}
+\begin{cases}
+\sum_{t=1}^{T} (X_t - \Lambda \Lambda'X_t)'(X_t - \Lambda \Lambda'X_t) \rightarrow \min_{\Lambda} \\
+s.t. \text{ } \Lambda'\Lambda = I
+\end{cases}
+\end{equation}
+Let $L = \sum_{t=1}^{T} (X_t - \Lambda \Lambda'X_t)'(X_t - \Lambda \Lambda'X_t)$, then:
+\[ L=\sum_{t=1}^{T} \left[(I - \Lambda \Lambda') X_t \right] ' \left[(I- \Lambda \Lambda') X_t \right] = 
+\]
+
+\[ =\sum_{t=1}^{T} X_t'(I - \Lambda \Lambda')'(I - \Lambda \Lambda') X_t = 
+\]
+
+\[
+ =\sum_{t=1}^{T} X_t'(I - \Lambda \Lambda') X_t = \sum_{t=1}^{T} X_t' X_t - \sum_{t=1}^{T} X_t' \Lambda \Lambda' X_t	
+\]
+
+\noindent Thus, problem \eqref{pca_simp} is equivalent to: 
+\begin{equation}
+	\begin{cases}
+	\sum_{t=1}^{T} X_t' \Lambda \Lambda' X_t \rightarrow \max_{\Lambda} \\
+	s.t. \text{ } \Lambda'\Lambda = I
+	\end{cases}
+\end{equation}
+Let $\tilde{L} = \sum_{t=1}^{T} X_t \Lambda \Lambda' X_t$, then:
+
+\[\tilde{L} = tr(\sum_{t=1}^{T} X_t' \Lambda \Lambda' X_t) =  \sum_{t=1}^{T} tr( X_t' \Lambda \Lambda' X_t) ) = \]
+ 
+\[\stackrel{\text{*}}{=} \sum_{t=1}^{T} tr(\Lambda \Lambda' X_t X_t') = 
+tr(\sum_{t=1}^T \Lambda \Lambda' X_t X_t') = tr(\Lambda \Lambda' \sum_{t=1}^T  X_t X_t'), \] where (*) follows from the trace property: $tr(AB) = tr(BA)$, if $A$ and $B$ are matrices of suitable sizes.
+ 
+\noindent Let us remind that if $X_{T \times N} = \begin{pmatrix}
+X_1 X_2 \dotsc X_T
+\end{pmatrix}'$ is matrix that have zero mean by columns, then $S_X = \frac{1}{T} \sum_{t=1}^T  X_t X_t'$ -- is empirical covariance matrix of $X_t$ vector.
+\[\tilde{L} = tr(\sum_{t=1}^T \Lambda \Lambda' X_t X_t') = tr(\Lambda \Lambda' T S_X) = T tr(\Lambda' S_X \Lambda)\]
+
+\noindent Thus \eqref{pca_simp} problem becomes equivalent to:
+\begin{equation}\label{pca_final}
+	\begin{cases}
+	tr(\Lambda' S_X \Lambda) \rightarrow \max_{\Lambda} \\
+	s.t. \text{ } \Lambda'\Lambda = I
+	\end{cases}
+\end{equation}
+
+ Still \eqref{pca_final} has $N(K+M)$ parameters along which econometrician should implement optimization procedure. Though, such an optimisation task has analytical solution. One should compute first $K+M$ eigen vectors of $S_X$ corresponding to largest eigen values. These vectors are columns of $\hat{\Lambda}$ that solves maximization task \eqref{pca_final} The fact that $S_X$ is a symmetrical positive semi-definite matrix guarantees that it has real-valued eigen vector and eigen values. Columns of $\hat{\Lambda}$ are nothing but first $K+M$ principal components of $X$. Knowing solution to \eqref{pca_final} one can easily find $\hat{\alpha_t}$ from \eqref{pca_ols}. \cite{stock2002macroeconomic} showed that under certain conditions on N, that should be "large", econometrician may use only first K principal and obtain consistent estimator of space spanned by $Y_t$ and $F_t$. It is important to note, that at this moment we did not rely on the fact that $Y_t$ is observable. For now we got $K$ linear combinations of $F_t$ and $Y_t$. In \cite{bernanke2005measuring} authors then perform purification procedure, that is removing $Y_t$ from the space spanned by first $K$ principal component of $X_t$.
+ 
+ In stage \ref{stage2} authors 
+
+
+
+
+
+
+
+
+
+
 
 
 \newpage
