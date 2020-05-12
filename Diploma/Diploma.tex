@@ -8,6 +8,8 @@
 \usepackage{booktabs}
 \usepackage{titling} % abstract 
 \usepackage{mathptmx} % TNR
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode} % pseudo-code
 
 \usepackage[14pt]{extsizes} % Возможность сделать 14-й шрифт
 \geometry{top=25mm}
@@ -179,7 +181,7 @@ It is obvious, that in real world dynamics of $Y_t$ is affected by a huge number
 \end{equation}
 where $\Lambda^f$ -- $N \times K$ matrix; $\Lambda^y$ -- $N \times M$; $e_t$ -- error term vector, such that: $\E(e_t) = 0$, $\E({e_t}_i {e_t}_j) \approx 0$ $\forall i \neq j$.\footnote{One can find formal requirements on $e_t$ in \cite{stock2002macroeconomic}} Equation \eqref{favar2} reflects the idea that economy can be precisely described by just $K+M$ main indicators. All the other variables that we may observe are generated from those key ones. The main point in \eqref{favar2} is that $F_t$ is still vector of unobservable variables and the idea is to exploit the fact that $(F_t', X_t')$ is observed to get estimates of $F_t$ vector. Having in some sense accurate $\hat{F_t}$, econometrician is able to estimate \eqref{favar1} in $(\hat{F_t'}, Y_t')$. It is important to note, that $X_t$ depends only on $F_t$ and $Y_t$, not from lags of these vectors. Though $X_t$ itself may contain one step ahead series. 
 
-If $N$ is a small number, it is possible to include $X_t$ directly in \eqref{favar1} and estimate VAR in $({X_t'}, Y_t')$. However, barely it is the truth, that central bank, for example, monitor only three or four variables, setting the key rate. Though, if researcher want to include additional variable in a model, it is quite unlikely that he would have enough observations to get coefficients' estimates. 
+If $N$ is a small number, it is possible to include $X_t$ directly in \eqref{favar1} and estimate VAR in $({X_t'}, Y_t')$. However, barely it is the truth, that central bank, for example, monitor only three or four variables, setting the key rate. Though, if researcher want to incorporate additional variable in a model, it is quite unlikely that he would have enough observations to get coefficients' estimates. 
 
 There are several possible FAVAR models may be constructed depending on what researcher initialy assume. For example, it is possible to include in $Y_t$ variables such as: CPI, GDP growth and central bank key rate, which means that researcher is uncertain about the rest structure of the economy and believe in the presence of finite number of latent factors that fill possible model misspecification. One may also argue, that in reality we don't observer truth GDP growth and CPI. Instead, we are provided with these series estimation by some federal institutions, that are still noisy measures for true variables. Such model specification is in line with the fact, that GDP growth and CPI series are subjects for several correction, even in a year. However, for sure, we observer truth central bank key rate.
 
@@ -279,12 +281,41 @@ X_1 X_2 \dotsc X_T
 	\end{cases}
 \end{equation}
 
- Still \eqref{pca_final} has $N(K+M)$ parameters along which econometrician should implement optimization procedure. Though, such an optimisation task has analytical solution. One should compute first $K+M$ eigen vectors of $S_X$ corresponding to largest eigen values. These vectors are columns of $\hat{\Lambda}$ that solves maximization task \eqref{pca_final} The fact that $S_X$ is a symmetrical positive semi-definite matrix guarantees that it has real-valued eigen vector and eigen values. Columns of $\hat{\Lambda}$ are nothing but first $K+M$ principal components of $X$. Knowing solution to \eqref{pca_final} one can easily find $\hat{\alpha_t}$ from \eqref{pca_ols}. \cite{stock2002macroeconomic} showed that under certain conditions on N, that should be "large", econometrician may use only first K principal and obtain consistent estimator of space spanned by $Y_t$ and $F_t$. It is important to note, that at this moment we did not rely on the fact that $Y_t$ is observable. For now we got $K$ linear combinations of $F_t$ and $Y_t$. In \cite{bernanke2005measuring} authors then perform purification procedure, that is removing $Y_t$ from the space spanned by first $K$ principal component of $X_t$.
+ Still \eqref{pca_final} has $N(K+M)$ parameters along which econometrician should implement optimization procedure. Though, such an optimisation task has an exact analytical solution. One should compute first $K+M$ eigen vectors of $S_X$ corresponding to largest eigen values. These vectors are columns of $\hat{\Lambda}$ that solves maximization task \eqref{pca_final} The fact that $S_X$ is a symmetrical positive semi-definite matrix guarantees that it has real-valued eigen vector and eigen values. Columns of $\hat{\Lambda}$ are nothing but first $K+M$ principal components of $X$. Knowing solution to \eqref{pca_final} one can easily find $\hat{\alpha_t}$ from \eqref{pca_ols}. \cite{stock2002macroeconomic} showed that under certain conditions on N, that should be "large", econometrician may use only first K principal components and obtain consistent estimator of space spanned by $Y_t$ and $F_t$. It is important to note, that at this moment we did not rely on the fact that $Y_t$ is observable. For now we got $K$ linear combinations of $F_t$ and $Y_t$. In \cite{bernanke2005measuring} authors then perform purification procedure, that is removing $Y_t$ from the space spanned by first $K$ principal component of $X_t$.
  
- In stage \ref{stage2} authors 
+ For stage \ref{stage2} authors divide variables into two groups: fast-moving and slow-moving. The first group assumed to contemporaneously react on unexpected shocks in $Y_t$, whereas the second one does not respond to unanticipated fluctuations in $Y_t$ at period $t$. Such variables' separation is necessary for obtaining purified factors $F_t$, that contains all the information apart from that in $Y_t$. Since impulse response functions is the main focus in \cite{bernanke2005measuring}, absence of immediate response in $F_t$ to shocks in $Y_t$ is one of the requirements in some SVAR identification schemes, such as recursive identification including Choleski decomposition of residuals covariance matrix. However, there is a place for experiments if one tries to employ FAVAR methodology for forecasting purposes. In literature, there are several ways to remove dependence of obtained in stage \ref{stage1} factors from $Y_t$. The one used in \cite{bernanke2005measuring} will be described below.
+ 
+ \noindent Let $\hat{C}(F_t, Y_t) \stackrel{\text{def}}{=} \hat{\Lambda} \hat{\alpha_t} \stackrel{\text{\eqref{pca_ols}}}{=} (\hat\Lambda' \hat\Lambda)^{-1}\hat\Lambda'X_t  \stackrel{\text{ \eqref{pca_final}}}{=} \hat\Lambda'X_t$, then authors estimate following model:
+ \begin{equation}
+ \hat{C}(F_t, Y_t) = \beta_0 + \beta_{-0} \hat{C}^{slow}(F_t) + \gamma Y_t + \nu_t ,
+ \end{equation}
+ 
+ \noindent where $\hat{C}(F_t, Y_t)$ -- the first $K$ principle components of $X_t$; $\hat{C}^{slow}(F_t)$ -- the first $K$ principle components of $X_t^{slow}$; $b_0$ -- $K \times 1$ vector; $b_{-0}$ -- $K \times K$ matrix; $\gamma$ -- $K \times M$ vector, though one may include subset of $Y_t$ variables  ; $\nu_t$ -- $K \times 1$ error vector. One can obtain $\hat{\beta}$ and $\hat{\gamma}$ using simple OLS method by rows, then: 
+ \[\hat{F}_t = \hat{\beta}_{-0} \hat{C}^{slow}(F_t) - \hat{\gamma}Y_t      \]  
+ 
+ \noindent Presence of $F_t$ estimates allows one to substitute $F_t$ by $\hat{F}_t$ in \eqref{favar1},  which result in:
+ 
+ \begin{equation}\label{favar_fhat}
+ 	\begin{bmatrix}
+ 	\hat{F}_t \\
+ 	Y_t
+ 	\end{bmatrix} = \Phi (L) 
+ 	\begin{bmatrix}
+ 	\hat{F}_{t-1} \\
+ 	Y_{t-1}
+ 	\end{bmatrix} + \upsilon_t
+ \end{equation}
+ Note once again that \eqref{favar_fhat} in nothing but standard VAR model in $(\hat{F}_t, Y_t)$, therefore $\Phi(L)$ can be estimated using traditional VAR techniques. Summarising all, we finaly get:
 
-
-
+\begin{algorithm}
+	\caption{FAVAR estimation}
+	$C(F_t,Y_t) \gets \textit{ the first K components of } X_t $ \newline
+	$C^{slow}(F_t) \gets \textit{ the first K components of } X_t^{slow}$ \newline
+	OLS estimation results $\gets \hat{C}(F_t, Y_t) = \hat{\beta}_0 + \hat{\beta}_{-0} \hat{C}^{slow}(F_t) + \hat{\gamma} Y_t$\newline
+	$\hat{F}_t \gets \hat{\beta}_{-0} \hat{C}^{slow}(F_t) - \hat{\gamma}Y_t$\newline
+	$d \gets$ VAR$(\hat{F}_t, Y_t)$ lag selection according to BIC\newline
+	FAVAR estimation results $\gets$ VAR($d$) in $(\hat{F}_t', Y_t')$
+\end{algorithm}
 
 
 
