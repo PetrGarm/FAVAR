@@ -38,7 +38,7 @@ fore_FAVAR <- function(X, Y, X_slow, K, y_name, i_name, h, y){
   
   # Factors rotation 
   ones_vec = rep(1, T)
-  Ffast = data.matrix(X[,i_name]) # interest rate
+  Ffast = data.matrix(Y[,i_name]) # interest rate
   k1 = dim(Ffast)[2] # (num of Ffast)
   ly = cbind(ones_vec, Ffast, Fslow0)
   
@@ -64,7 +64,6 @@ fore_FAVAR <- function(X, Y, X_slow, K, y_name, i_name, h, y){
   
   var <- VAR(Y_for_VAR, p)
   y_hat <- forecast(var, h=h)
-  #print(y_hat$forecast$aRUIP_slow)
   return(y_hat)
 }
 res_random_walk_drift <- 
