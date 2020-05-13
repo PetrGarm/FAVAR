@@ -10,6 +10,10 @@
 \usepackage{mathptmx} % TNR
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode} % pseudo-code
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage[official]{eurosym}
 
 \usepackage[14pt]{extsizes} % Возможность сделать 14-й шрифт
 \geometry{top=25mm}
@@ -93,7 +97,7 @@
 	\begin{center}
 		\vspace{3ex}
 		{Moscow}\\
-		\vspace{1ex}{28 February 2020}
+		\vspace{1ex}{17 April 2020}
 	\end{center}	
 	
 	\newpage
@@ -125,9 +129,9 @@ What for the time series prediction, most of the papers agree, that factor-augme
 Overall, literature suggest that potential of FAVAR model for time series prediction task still is not fully unlocked. There is a still space for improvements and experiments, for example, employing FAVAR for non-economic time series.
 
 \subsection{Methods}
-There are several approaches to measure quality of time series prediction models. Each method, however, captures one side of the model. Speaking about conventional time series cross validation, one may argue that it tests model's short-term prediction power, since it assesses one-step-ahead forecast. Traditional train test split is quite sensitive to split proportion and also to structural changes occured after the end of training set. For this reason, it is not fully accurate to perform any of this method in their traditional form. 
+There are several approaches to measure quality of time series prediction models. Each method, however, captures one side of the model. Traditional train test split is quite sensitive to split proportion and also to structural changes occured after the end of training set. For this reason, it is not fully accurate to perform this method in their traditional form. 
 
-Nonetheless, it is possible to account for long-term prediction power performing time-series cross validation and treat a forecast for each horizon separately. Still results of such procedure may be argued, since a robust estimate of a model's accuracy requires a large number of observations that is problematic for Russian data available. 
+Nonetheless, it is possible to account for h-horizon prediction power performing time-series cross validation and treat a forecast for each horizon separately. Still results of such procedure may be argued, since a robust estimate of a model's accuracy requires a large number of observations that is problematic for Russian data available. For this reason, I will measure models' performance using time-series cross-validation with expanding window.
 
 Forecasts are measured on RMSE (root of mean square error) metric
 as it is quite interpretable. Chosen measure will be evaluated for different horizons separately. The formula for h-th horizon as follows:
@@ -142,7 +146,7 @@ as it is quite interpretable. Chosen measure will be evaluated for different hor
 \] where ts -- hold-out set size, $\widehat{y_{t|t-h}}$ -- forecast for period t having available information up to the moment $t-h$.
 
 
-There are several ways to estimate FAVAR model. \cite{bernanke2005measuring} in their work consider two, that are two-step estimation using principal components analysis to recover latent factors and one-step Bayesian likelihood approach estimation. Authors stated that they found no obvious evidence of one method being superior to another and weather computational cost of the first one worths it. Since cross-validation requires multiple reestimation, I simply choose approach that is less time consuming. 
+There are several ways to estimate FAVAR model. \cite{bernanke2005measuring} in their work consider two, that are two-step estimation using principal components analysis to recover latent factors and one-step Bayesian likelihood approach estimation. Authors stated that they found no obvious evidence of one method being superior to another and weather computational cost of the first one worths it. Since cross-validation requires multiple reestimations, I simply choose approach that is less time-consuming. 
 
 Particular properties of two-step approach estimation makes unclear distribution of estimated coefficients, therefore building right confident intervals becomes separate task. \cite{bernanke2005measuring} use bootstrap procedure for obtaining impulse response function intervals, the same is possible to apply for predictive confident intervals, however that is out of the scope of this paper. One need a rich dataset to test statistically correctness of build intervals, which is not the case in dataset available.
 
@@ -286,7 +290,7 @@ X_1 X_2 \dotsc X_T
  For stage \ref{stage2} authors divide variables into two groups: fast-moving and slow-moving. The first group assumed to contemporaneously react on unexpected shocks in $Y_t$, whereas the second one does not respond to unanticipated fluctuations in $Y_t$ at period $t$. Such variables' separation is necessary for obtaining purified factors $F_t$, that contains all the information apart from that in $Y_t$. Since impulse response functions is the main focus in \cite{bernanke2005measuring}, absence of immediate response in $F_t$ to shocks in $Y_t$ is one of the requirements in some SVAR identification schemes, such as recursive identification including Choleski decomposition of residuals covariance matrix. However, there is a place for experiments if one tries to employ FAVAR methodology for forecasting purposes. In literature, there are several ways to remove dependence of obtained in stage \ref{stage1} factors from $Y_t$. The one used in \cite{bernanke2005measuring} will be described below.
  
  \noindent Let $\hat{C}(F_t, Y_t) \stackrel{\text{def}}{=} \hat{\Lambda} \hat{\alpha_t} \stackrel{\text{\eqref{pca_ols}}}{=} (\hat\Lambda' \hat\Lambda)^{-1}\hat\Lambda'X_t  \stackrel{\text{ \eqref{pca_final}}}{=} \hat\Lambda'X_t$, then authors estimate following model:
- \begin{equation}
+ \begin{equation}\label{favar_pure}
  \hat{C}(F_t, Y_t) = \beta_0 + \beta_{-0} \hat{C}^{slow}(F_t) + \gamma Y_t + \nu_t ,
  \end{equation}
  
@@ -313,12 +317,258 @@ X_1 X_2 \dotsc X_T
 	$C^{slow}(F_t) \gets \textit{ the first K components of } X_t^{slow}$ \newline
 	OLS estimation results $\gets \hat{C}(F_t, Y_t) = \hat{\beta}_0 + \hat{\beta}_{-0} \hat{C}^{slow}(F_t) + \hat{\gamma} Y_t$\newline
 	$\hat{F}_t \gets \hat{\beta}_{-0} \hat{C}^{slow}(F_t) - \hat{\gamma}Y_t$\newline
-	$d \gets$ VAR$(\hat{F}_t, Y_t)$ lag selection according to BIC\newline
+	$d \gets$ VAR$(\hat{F}_t, Y_t)$ lag selection according to AIC\newline
 	FAVAR estimation results $\gets$ VAR($d$) in $(\hat{F}_t', Y_t')$
 \end{algorithm}
 
+Explained procedure was used in \cite{bernanke2005measuring} for producing impulse response functions to policy shock. Purification is necessary for producing factors that has not respond contemporaneously to policy shock, since authors used recursive identification with FFR (Federal Funds Rate) ordering last. For forecasting purposes, one may try to remove impact of another variables (from $X_t$) or skip factor purification procedure at all. Using variables in $Y_t$ at \eqref{favar_pure} will not change result of reduced form VAR \eqref{favar_fhat} that is finally used for series prediction.
+
+\subsection{Model's specifications}
+Once econometrician has estimated $\hat\Phi(L)$ in \eqref{favar_fhat}, h-horizon forecast for $(\hat{F}_{t-1}, Y_{t-1})$ is nothing but:
+\[\begin{bmatrix}
+\hat{F}_{t+h-1} \\
+\hat{Y}_{t+h-1}
+\end{bmatrix} = \hat\Phi (L) ^{h}
+\begin{bmatrix}
+\hat{F}_{t-1} \\
+Y_{t-1}
+\end{bmatrix}\]
+
+For a particular variable forecast, researcher takes corresponding component of $\hat{Y}_{t+h-1}$ vector. One should also specify parameter $K$ representing number of latent factors. I find, that $K=1$ is sufficient in most cases. However, $K=2$ sometimes helps to obtain more accurate results in short-term prediction, Interesting that $K\ge 3$ generally increases model's error for almost all horizons. There is a space for experiments still, one may receive more accurate results at some horizons selecting proper variables for $Y_t$.
+
+Another approach, is to treat variable of interest $z_t$ as "informational" (included in $X_t$), but I found no clear evidence that such method is more preferable than assuming $z_t$ being observed. Such different FAVARs produce quite similar results, however there is a still place for experiments in choice of $Y_t$ vector components. 
+
+\section{Data}
+
+Data was collected from Thomson Reuters database. Dataset includes 199 monthly variables, that are assumed to represent economic situation in Russia, starting from 01/01/2000 and contains 240 observations maximum. Original data involved missings, such variables were dropped before the estimation procedure. To be in line with \cite{bernanke2005measuring} original time series were transformed (one or two times differencing) to induce stationarity\footnote{According to KPSS test}. In addition, for convenience original time-series were standardised to have zero mean and unit standard deviation. Though, in order to obtain fair results, seasonal component in considered time-series was not removed, since benchmark models are capable of handling seasonality in data. One can still decompose original time-series on seasonal and trend components, though FAVAR methodology cannot be applied to produce seasonal component forecasts, so it becomes mix of FAVAR and other model for seasonal component. Probably such an approach will yield more accurate forecasts, but the goal of this paper to check pure FAVAR model prediction power.
+
+Depending on variable being forecasted different number of observations was used: 238 in case of CPI and unemployment rate, 138 in case of GDP Y/Y \% change forecasts. 
 
 
+
+
+\newpage
+\section*{Appendixes}
+\appendix
+\section{Data Description}
+Table bellow provides information used dataset. An asterisk *, after mnemonic of some series shows that such variables were assumed to be slow-moving. Each time-series is provided with transformation applied to the original data: $\l$ -- no transformations, $\Delta$ -- first difference and $\Delta^2$ -- second difference. 
+\begin{center}
+	\begin{longtable}{p{5.5cm} p{10cm} p{0.15cm}} 
+		
+		\hline \hline \multicolumn{1}{c}{\textbf{Mnemonic}} & \multicolumn{1}{c}{\textbf{Description}} & \multicolumn{1}{c}{\textbf{}} \\ \hline 
+		\endfirsthead
+		
+		
+	
+		\endhead
+		
+		
+		\endfoot
+		
+		\hline \hline
+		\endlastfoot
+		
+	1. aRUPTTTT/C* &  Passenger Transport Turnover, Price Index & $\l$\\
+	2. aRUFTTCTT/C* &  Freight Transport Turnover, Cargo transport, Volume Index & $\l$\\
+	3. aRUCEXBA* &  Exports of Goods, Balance of Payments Basis, Standardized, Current Prices & $\Delta$\\
+	4. aRUCIMBA* &  Imports of Goods, Balance of Payments Basis, Standardized, Current Prices & $\Delta$\\
+	5. aRUCBOPA* &  Visible Trade Balance, Balance of Payments Basis, Standardized, Current Prices & $\l$\\
+	6. aRUCEXBPA* &  Exports of Goods, Balance of Payments Basis, \% month on month, Standardized, Chg P/P, Current Prices & $\l$\\
+	7. aRUCIMBPA* &  Imports of Goods, Balance of Payments Basis, \% month on month, Standardized, Chg P/P, Current Prices & $\l$\\
+	8. aRUCBOPPA* &  Visible Trade Balance, Balance of Payments Basis, month on month, Standardized, Absolute change, Current Prices & $\l$\\
+	9. aRUCEXBYA* &  Exports of Goods, Balance of Payments Basis, \% year on year, Standardized, Chg Y/Y, Current Prices & $\Delta$\\
+	10. aRUCIMBYA* &  Imports of Goods, Balance of Payments Basis, \% year on year, Standardized, Chg Y/Y, Current Prices & $\Delta$\\
+	11. aRUCBOPYA* &  Visible Trade Balance, Balance of Payments Basis, year on year, Standardized, Absolute change, Current Prices & $\l$\\
+	12. RUCBIR=ECI &  Central bank key rate & $\Delta$\\
+	13. aRUBCFBNKA &  Bank Lending: Loans to banks (in frgn. cur.), Current Prices & $\Delta$\\
+	14. aRUDOMDET &  Domestic Debt, Current Prices & $\Delta^2$\\
+	15. aRUBCDBNKA &  Bank Lending: Loans to banks (in rubles), Current Prices & $\Delta$\\
+	16. RUCPIY=ECI* &  CPI, Chg Y/Y & $\Delta$\\
+	17. aRUCPI* &  CPI, Price Index & $\Delta$\\
+	18. aRUCCPIYF* &  CPI, \% year on year, Standardized, Chg Y/Y, Price Index & $\Delta$\\
+	19. aRUCCPIF/C* &  CPI, Standardized, Price Index & $\Delta$\\
+	20. aRUCPFYYF* &  CPI, Food products, Chg Y/Y & $\Delta$\\
+	21. aRUCPCORIF* &  CPI, Core inflation, Chg Y/Y & $\Delta$\\
+	22. aRUCCPIYE/A* &  CPI, \% year on year, Standardized, Chg Y/Y, Price Index, SA & $\Delta$\\
+	23. aRUCCPIPF* &  CPI, \% month on month, Standardized, Chg P/P, Price Index & $\Delta$\\
+	24. aRUCCORYE/A* &  Core CPI, Standardized, Chg Y/Y, Price Index, SA & $\Delta$\\
+	25. aRUCCPIPE/A* &  CPI, \% month on month, Standardized, Chg P/P, Price Index, SA & $\Delta$\\
+	26. aRUCPNYYF* &  CPI, Non-food products, Chg Y/Y & $\l$\\
+	27. aRUCPIF* &  CPI, Food and beverages, Price Index & $\l$\\
+	28. aRUCPISERV* &  CPI, Services, Price Index & $\Delta$\\
+	29. aRUCPIXF* &  CPI, Non-food goods, Price Index & $\l$\\
+	30. aRUCPGOODF/C* &  CPI, Goods, Price Index & $\l$\\
+	31. aRUGOODSF* &  CPI, Goods, Chg Y/Y & $\Delta$\\
+	32. aRUCPFPFVF/C* &  CPI, Food products without fruits and vegetables, Price Index & $\Delta$\\
+	33. aRUCCPIE/CA* &  CPI, Standardized, Price Index, SA & $\Delta$\\
+	34. aRUCCORF/C* &  Core CPI, Standardized, Price Index & $\Delta$\\
+	35. aRUCCORE/CA* &  Core CPI, Standardized, Price Index, SA & $\Delta$\\
+	36. aRUCCORPF* &  Core CPI, Standardized, Chg P/P, Price Index & $\Delta$\\
+	37. aRUCCORPE/A* &  Core CPI, Standardized, Chg P/P, Price Index, SA & $\Delta$\\
+	38. aRUCCORYF* &  Core CPI, Standardized, Chg Y/Y, Price Index & $\Delta$\\
+	39. RUCPIY=ECIX* &  CPI, Chg Y/Y & $\Delta$\\
+	40. aRUCPFWFVF* &  CPI, Food products without fruits .and vegetables, Chg Y/Y & $\Delta$\\
+	41. aRUCPICORY/C* &  CPI, Core CPI, Price Index & $\Delta$\\
+	42. aRUCPNPSVF* &  CPI, Paid services, Chg Y/Y & $\Delta$\\
+	43. aRUCPICOR/C* &  CPI, Core CPI, Price Index & $\Delta$\\
+	44. aRUCLEAD &  Composite leading indicators, Trend restored, SA & $\Delta$\\
+	45. aRUEMPLMT* &  Employment, Volume & $\Delta$\\
+	46. aRUBISRXBR &  BIS, Real Broad Effective Exchange Rate Index & $\Delta$\\
+	47. aRUCXTWF/C &  Trade Weighted nominal exchange rate, Standardized, Price Index & $\Delta$\\
+	48. aRUCXTWPF &  Trade Weighted nominal exchange rate, \% month on month, Standardized, Chg P/P, Price Index & $\l$\\
+	49. aRUCXTWYF &  Trade Weighted nominal exchange rate, \% year on year, Standardized, Chg Y/Y, Price Index & $\l$\\
+	50. aRUCXTRF/C &  Trade Weighted real exchange rate, Standardized, Price Index & $\Delta$\\
+	51. aRUCXTRPF &  Trade Weighted real exchange rate, \% month on month, Standardized, Chg P/P, Price Index & $\l$\\
+	52. aRUCXTRYF &  Trade Weighted real exchange rate, \% year on year, Standardized, Chg Y/Y, Price Index & $\l$\\
+	53. aRUIRECE/C &  Real effective exchange rate (REER) based on consumer price index, 2010=100, Not SA, Price Index & $\Delta$\\
+	54. aRUINECE/C &  Nominal effective exchange rate (NEER) based on consumer price index, 2010=100, Not SA, Price Index & $\Delta$\\
+	55. aRUBISNXBR &  BIS, Nominal Broad Effective Exchange Rate Index & $\Delta$\\
+	56. aRUXRUSD &  RUSSIAN ROUBLES TO US \$ & $\Delta$\\
+	57. RUGDP=ECI* &  GDP, Chg Y/Y & $\Delta$\\
+	58. aRUTREV* &  Revenue, Federal budget, Current Prices & $\Delta$\\
+	59. aRUPFEXP* &  Expenditure, Current Prices & $\Delta$\\
+	60. aRUCBUDIC* &  Revenue, Consolidated budget, incomes total, Current Prices & $\Delta$\\
+	61. aRUEXPDT* &  Expenditure, Current Prices & $\Delta$\\
+	62. aRUGDEF* &  Deficit/Surplus, Federal budget, Current Prices & $\l$\\
+	63. aRUCGOVA* &  Central government Deficit/Surplus, Standardized, Current Prices & $\l$\\
+	64. aRUCGOVPA* &  Central government Deficit/Surplus, month on month, Standardized, Absolute change, Current Prices & $\l$\\
+	65. aRUCGOVYA* &  Central government Deficit/Surplus, year on year, Standardized, Absolute change, Current Prices & $\l$\\
+	66. aRSCGOVBLA* &  Public Finances, Central Government, Budget, Balance, Deficit/Surplus, Current Prices & $\l$\\
+	67. aRUDSCBUD* &  Deficit/Surplus, Consolidated budget, Current Prices & $\l$\\
+	68. aRUDCTDA &  Dwellings Commenced, Total dwellings area, Volume & $\Delta$\\
+	69. aRUDCTI &  Dwellings Commenced, Total dwellings area, Price Index & $\Delta$\\
+	70. aRUPPICONS* &  Producer Prices, Investment products, Chg P/P & $\Delta$\\
+	71. RUTRD=ECI* &  Trade Balance, Total, Free On Board, Current Prices & $\l$\\
+	72. aRUEXP* &  Exports, FOB, Current Prices & $\Delta$\\
+	73. aRUIMP* &  Imports, FOB, Current Prices & $\Delta$\\
+	74. aRUTBAL* &  Trade Balance, FOB, Current Prices & $\l$\\
+	75. aRUEXPNGC* &  Exports, Natural gas, Current Prices & $\l$\\
+	76. aRUEXPCRD* &  Exports, Crude oil, Current Prices & $\l$\\
+	77. aRUEXPDIESL* &  Exports, Diesel fuel, Current Prices & $\l$\\
+	78. aRUIMPPRO* &  Exports, Petroleum products, Current Prices & $\l$\\
+	79. aRUIMPMED* &  Imports, Medicines, Current Prices & $\l$\\
+	80. aRUIMPMNEQ* &  Imports, Machinery and equipment, Current Prices & $\l$\\
+	81. aRUIMPCLOTH* &  Imports, Clothing, Current Prices & $\Delta$\\
+	82. aRUEXPMOM* &  Exports, Ferrous metals, Current Prices & $\l$\\
+	83. aRUCEXPB/A* &  Merchandise Exports, Standardized, Current Prices, SA & $\Delta$\\
+	84. aRUCIMPB/A* &  Merchandise Imports, Standardized, Current Prices, SA & $\Delta$\\
+	85. aRUCEXPPB/A* &  Merchandise Exports, \% month on month, Standardized, Chg P/P, Current Prices, SA & $\l$\\
+	86. aRUCEXPYB/A* &  Merchandise Exports, \% year on year, Standardized, Chg Y/Y, Current Prices, SA & $\Delta$\\
+	87. aRUCIMPPB/A* &  Merchandise Imports, \% month on month, Standardized, Chg P/P, Current Prices, SA & $\l$\\
+	88. aRUCIMPYB/A* &  Merchandise Imports, \% year on year, Standardized, Chg Y/Y, Current Prices, SA & $\Delta$\\
+	89. aRUCVISB/A* &  Visible Trade Balance, Standardized, Current Prices, SA & $\l$\\
+	90. aRUCVISPB/A* &  Visible Trade Balance, month on month, Standardized, Absolute change, Current Prices, SA & $\l$\\
+	91. aRUCVISYB/A* &  Visible Trade Balance, year on year, Standardized, Absolute change, Current Prices, SA & $\l$\\
+	92. RUTRD=ECIX* &  Trade Balance, Total, Free On Board & $\l$\\
+	93. RUIP=ECI* &  Production, IP Total , Chg Y/Y & $\l$\\
+	94. aRUIP* &  Production, Chg Y/Y & $\l$\\
+	95. aRUIPOIL* &  Production, Oil output, including gas condensate, Volume & $\Delta$\\
+	96. aRUCINDG/A* &  Industrial Production Index, Standardized, Volume Index, SA & $\Delta$\\
+	97. aRUIPNAG* &  Production, Natural gas output, Volume & $\l$\\
+	98. aRUIPMANH/C* &  Production, Manufacturing, Volume Index & $\l$\\
+	99. aRUIPMANG* &  Production, Manufacturing, Chg Y/Y & $\l$\\
+	100. aRUINP/C* &  Production, Industry, Volume Index & $\Delta$\\
+	101. aRUCINDPG/A* &  Industrial Production Index, Standardized, Chg P/P, Volume Index, SA & $\l$\\
+	102. aRUCINDYG/CA* &  Industrial Production Index, \% year on year, Standardized, Chg Y/Y, Volume Index, SA & $\l$\\
+	103. RUIP=ECIX* &  Production, IP Total, Chg Y/Y & $\l$\\
+	104. aRUPRATE &  Policy Rates, Minimum Rate on 7 Day Repo & $\Delta$\\
+	105. aRUINTRES &  Reserves, Gross international, Current Prices & $\Delta$\\
+	106. aRUFXRES &  Reserves, Foreign currency reserves, Current Prices & $\Delta$\\
+	107. aRUFCRES &  Reserves, Foreign currency, Current Prices & $\Delta$\\
+	108. aRUCRESA &  Official international reserves, Standardized, Current Prices & $\Delta$\\
+	109. aRURESGLD &  Reserves, Gold, Current Prices & $\Delta$\\
+	110. aRUCRESPA &  Official international reserves, \% month on month, Standardized, Chg P/P, Current Prices & $\Delta$\\
+	111. aRUCRESYA &  Official international reserves, \% year on year, Standardized, Chg Y/Y, Current Prices & $\Delta$\\
+	112. aRURTM1A1A &  Official reserve assets, Foreign currency, Current Prices & $\Delta^2$\\
+	113. aRURESSDR &  Reserves, Special Drawing Rights, Current Prices & $\Delta$\\
+	114. aRURTM1AA &  Official reserve assets, Overall, Current Prices & $\Delta$\\
+	115. aRURESIMF &  Reserves, Reserve position in the IMF, Current Prices & $\Delta$\\
+	116. aRUM2 &  Money supply M2 by national definition, Current Prices & $\Delta$\\
+	117. aRUM0 &  Money supply M0, Current Prices & $\Delta$\\
+	118. aRUNM1 &  Money Supply - M1, Current Prices & $\Delta$\\
+	119. aRUMNBAS &  Monetary base (narrow definition), Current Prices & $\Delta$\\
+	120. aRUMBASMOC &  Monetary base (broad definition), Current Prices & $\Delta$\\
+	121. aRUMSMBBRA &  Broad money liabilities, Current Prices & $\Delta$\\
+	122. aRUCMS2B/A &  Money Supply M2, Standardized, Current Prices, SA & $\Delta$\\
+	123. aRUCMS2PB/A &  Money Supply M2, \% month on month, Standardized, Chg P/P, Current Prices, SA & $\l$\\
+	124. aRUCMS2YB/A &  Money Supply M2, \% year on year, Standardized, Chg Y/Y, Current Prices, SA & $\Delta$\\
+	125. aRUCMS1B/A &  Money Supply M1, Standardized, Current Prices, SA & $\Delta$\\
+	126. aRUCMS0B/A &  Money Supply M0, Standardized, Current Prices, SA & $\Delta$\\
+	127. aRUCMS1PB/A &  Money Supply M1, Standardized, Chg P/P, Current Prices, SA & $\l$\\
+	128. aRUCMS0PB/A &  Money Supply M0, Standardized, Chg P/P, Current Prices, SA & $\l$\\
+	129. aRUCMS1YB/A &  Money Supply M1, Standardized, Chg Y/Y, Current Prices, SA & $\Delta$\\
+	130. aRUCMS0YB/A &  Money Supply M0, Standardized, Chg Y/Y, Current Prices, SA & $\Delta$\\
+	131. RUPPI=ECI* &  Producer Prices, Chg P/P & $\l$\\
+	132. RUPPIY=ECI* &  Producer Prices, Chg Y/Y & $\l$\\
+	133. aRUPPI/C* &  Producer Prices, Price Index & $\Delta$\\
+	134. aRUPPITCP* &  Producer Prices, Chg P/P & $\l$\\
+	135. aRUPPIF* &  Producer Prices, Chg Y/Y & $\l$\\
+	136. aRUCPPIE/CA* &  Producer Prices, PPI, Standardized, Price Index, SA & $\Delta$\\
+	137. aRUPPIAR* &  Producer Prices, Chg P/P & $\l$\\
+	138. aRUCPPIF/C* &  Producer Prices, PPI, Standardized, Price Index & $\Delta$\\
+	139. aRUCPPIPE/A* &  Producer Prices, PPI, \% month on month, Standardized, Chg P/P, Price Index, SA & $\l$\\
+	140. aRUCPPIPF* &  Producer Prices, PPI, \% month on month, Standardized, Chg P/P, Price Index & $\l$\\
+	141. aRUCPPIYE/A* &  Producer Prices, PPI, \% year on year, Standardized, Chg Y/Y, Price Index, SA & $\Delta$\\
+	142. aRUCPPIYF* &  Producer Prices, PPI, \% year on year, Standardized, Chg Y/Y, Price Index & $\Delta$\\
+	143. RUPPI=ECIX* &  Producer Prices, Chg P/P & $\l$\\
+	144. RUPPIY=ECIX* &  Producer Prices, Chg Y/Y & $\l$\\
+	145. aRUPPIYAR* &  Producer Prices, Chg Y/Y & $\l$\\
+	146. aRUPPITC* &  Producer Prices, Price Index & $\Delta$\\
+	147. RURSLY=ECI* &  Retail Sales YY, Price Index & $\Delta$\\
+	148. aRURSLS* &  Retail Trade Turnover, Current Prices & $\Delta$\\
+	149. aRURSLSTO* &  Retail Trade Turnover, Price Index & $\Delta$\\
+	150. aRUCRETF/C* &  Retail Sales, Standardized, Price Index & $\Delta$\\
+	151. aRUCRETE/CA* &  Retail Sales, Standardized, Price Index, SA & $\Delta$\\
+	152. aRUCRETPF* &  Retail Sales, Standardized, Chg P/P, Price Index & $\l$\\
+	153. aRUCRETPE/A* &  Retail Sales, Standardized, Chg P/P, Price Index, SA & $\Delta$\\
+	154. aRUCRETYF* &  Retail Sales, Standardized, Chg Y/Y, Price Index & $\Delta$\\
+	155. aRUCRETYE/A* &  Retail Sales, Standardized, Chg Y/Y, Price Index, SA & $\Delta$\\
+	156. RURSLY=ECIX* &  Retail Sales YY & $\Delta$\\
+	157. aRURTTNFC* &  Retail Trade Turnover, Non-food commodities, Current Prices & $\Delta$\\
+	158. aRURSLS/C* &  Retail Trade Turnover, Volume Index & $\l$\\
+	159. aRURTTFC* &  Retail Trade Turnover, Food commodities, Current Prices & $\Delta$\\
+	160. aRUGBOND &  Bid & $\Delta$\\
+	161. aRUSHRPRCF &  MICEX, Composite Index, Price Index & $\Delta$\\
+	162. aRUWANMAVWG* &  Wages, Nominal average monthly per worker, Current Prices & $\Delta$\\
+	163. aRUWSAMTCPP* &  Wages, Real average monthly, Volume Index & $\Delta$\\
+	164. aRUCWAGF/C* &  Wages, total, Standardized, Price Index & $\Delta$\\
+	165. aRUCWAGPF* &  Wages, total, \% month on month, Standardized, Chg P/P, Price Index & $\l$\\
+	166. aRUCWAGYF* &  Wages, total, \% year on year, Standardized, Chg Y/Y, Price Index & $\Delta$\\
+	167. aRUAVGMANW* &  Average monthly accrued nominal wages, Current Prices & $\Delta$\\
+	168. RUUNR=ECI* &  Unemployment, Rate & $\Delta$\\
+	169. RURWGE=ECI* &  Real Wages YY, Chg Y/Y & $\Delta$\\
+	170. aRUUNR* &  Unemployment, Rate & $\Delta$\\
+	171. aRUUNTOTR* &  Uneployment rate, ILO & $\Delta$\\
+	172. aRUPOPEA* &  Economically active population - Unemployed, Volume & $\Delta$\\
+	173. aRUCUNPQ/A* &  Unemployment rate, Standardized, SA & $\Delta$\\
+	174. aRUUEMPILO* &  Unemployment, Total persons (ILO), aged 15 and over, Volume & $\Delta$\\
+	175. aRUUEMP* &  Unemployment, Officially registered, Volume & $\Delta$\\
+	176. aRUUNRAR* &  Unemployment, Rate & $\Delta$\\
+	177. aRUCUNPPQ/A* &  Unemployment rate, month on month, Standardized, SA & $\l$\\
+	178. aRUCUNPYQ/A* &  Unemployment rate, year on year, Standardized, SA & $\l$\\
+	179. aRUCUNPO* &  Unemployment Level, Standardized, Volume & $\Delta$\\
+	180. aRUCUNPP* &  Unemployment Level, Standardized, Volume & $\Delta$\\
+	181. aRUCUNPPO/A* &  Unemployment Level, \% month on month, Standardized, Chg P/P, Volume, SA & $\l$\\
+	182. aRUCUNPPP* &  Unemployment Level, \% month on month, Standardized, Chg P/P, Volume & $\l$\\
+	183. aRUCUNPYO* &  Unemployment Level, \% year on year, Standardized, Chg Y/Y, Volume & $\l$\\
+	184. aRUCUNPYP* &  Unemployment Level, \% year on year, Standardized, Chg Y/Y, Volume & $\l$\\
+	185. RURWGE=ECIX* &  Real Wages YY, Chg Y/Y & $\Delta$\\
+	186. RUUNR=ECIX* &  Unemployment, Rate & $\Delta$\\
+	187. aRUUNRRILO* &  Unemployment, Rate, Officially registered (ILO) & $\Delta$\\
+	188. .IRTS & RTS Index & $\Delta$\\
+	189. .IMOEX & MOEX Russia Index & $\Delta$\\
+	190. .RTSOG & RTS Oil \& Gas Index & $\Delta$\\
+	191. .RTSTL & RTS Telecom Index & $\Delta$\\
+	192. BrentP & Brent Price nominal & $\Delta$\\
+	193. BrentPP & Brent Price (\%) & $\l$\\
+	194. WTIP & WTI Price nominal & $\Delta$\\
+	195. WTIPP & WTI Price (\%) & $\l$\\
+	196. RUEURP &  RUSSIAN ROUBLES TO EU \euro{}, Close & $\Delta$\\
+	197. RUEURMAX &  RUSSIAN ROUBLES TO EU \euro{}, Max & $\Delta$\\
+	198. RUEURMIN &  RUSSIAN ROUBLES TO EU \euro{}, Min & $\Delta$\\
+	199. RUEURPP &  RUSSIAN ROUBLES TO EU \euro{}, \% change & $\l$\\
+	\end{longtable}
+\end{center}
 
 
 
