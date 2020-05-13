@@ -1,4 +1,5 @@
 my_tsCV <- function(y, forecastfunction, y_name, h=1, window=NULL, xreg=NULL, initial=0, ...) {
+  y_name <- sub("=", '.', y_name)
   y <- as.ts(y)
   n <- length(y)
   e <- ts(matrix(NA_real_, nrow = n, ncol = h))
