@@ -212,13 +212,13 @@ y <- Y_gdp[,2]
 ### forecast gdp
 source("my_tsCV.R")
 errors_FAVAR_cv_gdp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_name,
-                                 h = 12, X = X, Y = Y_gdp, X_slow = X_slow, K = 1, i_name = i_name, 
+                                 h = 12, X = X, Y = Y_gdp, X_slow = X_slow, K = 2, i_name = i_name, 
                                  initial = 144)
 res_FAVAR_gdp <- sqrt(colMeans(errors_FAVAR_cv_gdp^2, na.rm = TRUE))
 
 errors_VAR_cv_gdp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_name,
-                               h = 12, X = X, Y = Y, X_slow = X_slow, K = 1, i_name = i_name, use_VAR = T, 
-                               initial = 144)
+                             h = 12, X = X, Y = Y_gdp, X_slow = X_slow, K = 1, i_name = i_name, 
+                             use_VAR = T, initial = 144)
 res_VAR_gdp <- sqrt(colMeans(errors_VAR_cv_gdp^2, na.rm = TRUE))
 
 errors_auto_arima_cv_gdp <- tsCV(y, forecastfunction = fore_arima, h = 12,
@@ -263,5 +263,9 @@ for (i in 1:length(variables)) {
 library(xtable)
 cpi_latex <- xtable(t(results*100), caption = 'RMSE $\\times$ 100 for CPI forecasts')
 print(cpi_latex,hline.after=c(-1, 0), tabular.environment = "longtable")
-unemp_latex <- xtable(t(results*100), caption = 'RMSE $\\times$ 100 for unemployment rate forecasts')
-print(cpi_latex,hline.after=c(-1, 0), tabular.environment = "longtable")
+
+unemp_latex <- xtable(t(results_unemp*100), caption = 'RMSE $\\times$ 100 for unemployment rate forecasts')
+print(unemp_latex,hline.after=c(-1, 0), tabular.environment = "longtable")
+
+gdp_latex <- xtable(t(results_gdp*100), caption = 'RMSE $\\times$ 100 for GDP forecasts')
+print(gdp_latex,hline.after=c(-1, 0), tabular.environment = "longtable")
