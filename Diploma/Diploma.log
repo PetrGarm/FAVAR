@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  14 MAY 2020 18:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.16)  14 MAY 2020 22:52
 entering extended mode
 **./Diploma.tex
 (Diploma.tex
@@ -626,45 +626,29 @@ Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 \@eurobox=\box35
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
-Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
-\col@sep=\dimen146
-\extrarowheight=\dimen147
-\NC@list=\toks34
-\extratabsurround=\skip65
-\backup@length=\skip66
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\extsizes\extsizes.sty"
-Package: extsizes 1996/10/08 v1.0 Non Standard LaTeX Package
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2016/04/23 3.9r The Babel package
 
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-russian\russianb.ldf"
+Language: russian 2017/08/12 1.3j Russian support for the Babel system
 
-Package ExtSizes Warning: It is better to use one of the extsizes classes,
- if you can.
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2016/04/23 3.9r Babel common definitions
+\babel@savecnt=\count127
+\U@D=\dimen146
+)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\extsizes\size14.clo"
-File: size14.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\euscript.sty"
-Package: euscript 2009/06/22 v3.00 Euler Script fonts
-LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
-(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\mathrsfs.sty"
-Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
-\symrsfs=\mathgroup8
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip67
-\bibsep=\skip68
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count127
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\cmap\cmap.sty"
-Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
-Package: fontenc 2017/01/24 v2.0c Standard LaTeX package
+Package babel Warning: No Cyrillic font encoding has been loaded so far.
+(babel)                A font encoding should be declared before babel.
+(babel)                Default `T2A' encoding will be loaded  on input line 74.
+
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2aenc.def"
 File: t2aenc.def 2005/09/27 v1.0i Cyrillic encoding definition file
@@ -860,34 +844,65 @@ File: t2aenc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
    defining Unicode char U+232A (decimal 9002)
    defining Unicode char U+2423 (decimal 9251)
 ))
+Package babel Info: Making " an active character on input line 120.
+Package babel Info: Default for \cyrdash is provided on input line 157.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-english\english.ldf"
+Language: english 2017/01/24 v3.3q English support from the babel system
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen147
+\extrarowheight=\dimen148
+\NC@list=\toks34
+\extratabsurround=\skip65
+\backup@length=\skip66
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\extsizes\extsizes.sty"
+Package: extsizes 1996/10/08 v1.0 Non Standard LaTeX Package
+
+
+Package ExtSizes Warning: It is better to use one of the extsizes classes,
+ if you can.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\extsizes\size14.clo"
+File: size14.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\euscript.sty"
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\mathrsfs.sty"
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup8
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip67
+\bibsep=\skip68
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count128
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\cmap\cmap.sty"
+Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2017/01/24 v2.0c Standard LaTeX package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2aenc.def"
+File: t2aenc.def 2005/09/27 v1.0i Cyrillic encoding definition file
+LaTeX Font Info:    Redeclaring font encoding T2A on input line 42.
+)
 LaTeX Font Info:    Try loading font information for T2A+cmr on input line 105.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2acmr.fd"
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )<<t2a.cmap>>)
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2016/04/23 3.9r The Babel package
-
-*************************************
-* Local config file bblopts.cfg used
-*
-("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
- babel
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\babel-english\english.ldf"
-Language: english 2017/01/24 v3.3q English support from the babel system
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2016/04/23 3.9r Babel common definitions
-\babel@savecnt=\count128
-\U@D=\dimen148
-)
-\l@canadian = a dialect from \language\l@american 
-\l@australian = a dialect from \language\l@british 
-\l@newzealand = a dialect from \language\l@british 
-))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -919,26 +934,26 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 (Diploma.aux)
 \openout1 = `Diploma.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Try loading font information for T2A+ptm on input line 62.
-LaTeX Font Info:    No file T2Aptm.fd. on input line 62.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Try loading font information for T2A+ptm on input line 63.
+LaTeX Font Info:    No file T2Aptm.fd. on input line 63.
 
 
 LaTeX Font Warning: Font shape `T2A/ptm/m/n' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 62.
+(Font)              using `T2A/cmr/m/n' instead on input line 63.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1030,381 +1045,351 @@ Package grfext Info: Graphics extension search list:
 )
 
 LaTeX Font Warning: Font shape `T2A/ptm/bx/n' undefined
-(Font)              using `T2A/ptm/m/n' instead on input line 69.
+(Font)              using `T2A/ptm/m/n' instead on input line 70.
 
 
 LaTeX Font Warning: Font shape `T2A/ptm/m/it' undefined
-(Font)              using `T2A/ptm/m/n' instead on input line 88.
+(Font)              using `T2A/ptm/m/n' instead on input line 89.
 
 [1
 
-{C:/Users/petrg/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-[3] [4]
-Overfull \hbox (1.27333pt too wide) in paragraph at lines 132--133
-[]\T2A/ptm/m/it/14.4 Berggren and Lo-de-nius (2016) in their pa-per com-puted D
-iebold-Mariano
- []
+{C:/Users/petrg/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(Diploma.toc
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 3.
 
-[5]
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 14
-3.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ztmcm.fd"
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )<<ot1.cmap>>
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 14
-3.
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 3.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlztmcm.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlztmcm.fd"
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )<<oml.cmap>>
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 14
-3.
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 3.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsztmcm.fd"
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )<<oms.cmap>>
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 14
-3.
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 3.
+
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omxztmcm.fd"
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )<<omx.cmap>>
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 143.
-
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 3.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 143.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 143.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 143.
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 143.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 3.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [6]
+))
+\tf@toc=\write3
+\openout3 = `Diploma.toc'.
+
+ [2] [3] [4]
+Overfull \hbox (3.27672pt too wide) in paragraph at lines 132--133
+[]\T2A/ptm/m/it/14.4 Nevertheless, there are some works fo-cused on ap-ply-ing 
+con-sid-ered model
+ []
+
+[5]
+Overfull \hbox (18.9018pt too wide) in paragraph at lines 134--135
+\T2A/ptm/m/it/14.4 augmented VAR shows bet-ter per-for-mance for long-term fore
+-casts. In Figueiredo
+ []
+
+
+Overfull \hbox (1.27333pt too wide) in paragraph at lines 136--137
+[]\T2A/ptm/m/it/14.4 Berggren and Lo-de-nius (2016) in their pa-per com-puted D
+iebold-Mariano
+ []
+
+[6] [7]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
- [7] [8]
-[9] [10] [11] [12] [13] [14] [15]
-Overfull \hbox (28.95271pt too wide) in paragraph at lines 332--333
-\T2A/ptm/m/it/14.4 Once econo-me-tri-cian has es-ti-mated $[]\OT1/ztmcm/m/n/14.
-4 (\OML/ztmcm/m/it/14.4 L\OT1/ztmcm/m/n/14.4 )$ \T2A/ptm/m/it/14.4 in [], h-hor
-izon fore-cast for $\OT1/ztmcm/m/n/14.4 ([]\OML/ztmcm/m/it/14.4 ; Y[]\OT1/ztmcm
-/m/n/14.4 )$
- []
-
-[16]
-Overfull \hbox (5.48741pt too wide) in paragraph at lines 356--356
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
+ [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+Overfull \hbox (5.48741pt too wide) in paragraph at lines 362--362
  []|\T2A/ptm/m/it/14.4 ARIMA| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 358--358
- []|\T2A/ptm/m/it/14.4 h=1| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 359--359
- []|\T2A/ptm/m/it/14.4 h=2| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 360--360
- []|\T2A/ptm/m/it/14.4 h=3| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 361--361
- []|\T2A/ptm/m/it/14.4 h=4| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 362--362
- []|\T2A/ptm/m/it/14.4 h=5| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 363--363
- []|\T2A/ptm/m/it/14.4 h=6| 
  []
 
 
 Overfull \hbox (10.90778pt too wide) in paragraph at lines 364--364
- []|\T2A/ptm/m/it/14.4 h=7| 
+ []|\T2A/ptm/m/it/14.4 h=1| 
  []
 
 
 Overfull \hbox (10.90778pt too wide) in paragraph at lines 365--365
- []|\T2A/ptm/m/it/14.4 h=8| 
+ []|\T2A/ptm/m/it/14.4 h=2| 
  []
 
 
 Overfull \hbox (10.90778pt too wide) in paragraph at lines 366--366
- []|\T2A/ptm/m/it/14.4 h=9| 
- []
-
-
-Overfull \hbox (17.76129pt too wide) in paragraph at lines 367--367
- []|\T2A/ptm/m/it/14.4 h=10| 
- []
-
-
-Overfull \hbox (17.76129pt too wide) in paragraph at lines 368--368
- []|\T2A/ptm/m/it/14.4 h=11| 
- []
-
-
-Overfull \hbox (17.76129pt too wide) in paragraph at lines 369--369
- []|\T2A/ptm/m/it/14.4 h=12| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 372
- []
-
-[17]
-Overfull \hbox (5.48741pt too wide) in paragraph at lines 377--377
- []|\T2A/ptm/m/it/14.4 ARIMA| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 379--379
- []|\T2A/ptm/m/it/14.4 h=1| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 380--380
- []|\T2A/ptm/m/it/14.4 h=2| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 381--381
  []|\T2A/ptm/m/it/14.4 h=3| 
  []
 
 
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 382--382
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 367--367
  []|\T2A/ptm/m/it/14.4 h=4| 
  []
 
 
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 383--383
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 368--368
  []|\T2A/ptm/m/it/14.4 h=5| 
  []
 
 
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 384--384
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 369--369
  []|\T2A/ptm/m/it/14.4 h=6| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 370--370
+ []|\T2A/ptm/m/it/14.4 h=7| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 371--371
+ []|\T2A/ptm/m/it/14.4 h=8| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 372--372
+ []|\T2A/ptm/m/it/14.4 h=9| 
+ []
+
+
+Overfull \hbox (17.76129pt too wide) in paragraph at lines 373--373
+ []|\T2A/ptm/m/it/14.4 h=10| 
+ []
+
+
+Overfull \hbox (17.76129pt too wide) in paragraph at lines 374--374
+ []|\T2A/ptm/m/it/14.4 h=11| 
+ []
+
+
+Overfull \hbox (17.76129pt too wide) in paragraph at lines 375--375
+ []|\T2A/ptm/m/it/14.4 h=12| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 378
+ []
+
+
+Overfull \hbox (5.48741pt too wide) in paragraph at lines 383--383
+ []|\T2A/ptm/m/it/14.4 ARIMA| 
  []
 
 
 Overfull \hbox (10.90778pt too wide) in paragraph at lines 385--385
- []|\T2A/ptm/m/it/14.4 h=7| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 386--386
- []|\T2A/ptm/m/it/14.4 h=8| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 387--387
- []|\T2A/ptm/m/it/14.4 h=9| 
- []
-
-
-Overfull \hbox (17.76129pt too wide) in paragraph at lines 388--388
- []|\T2A/ptm/m/it/14.4 h=10| 
- []
-
-
-Overfull \hbox (17.76129pt too wide) in paragraph at lines 389--389
- []|\T2A/ptm/m/it/14.4 h=11| 
- []
-
-
-Overfull \hbox (17.76129pt too wide) in paragraph at lines 390--390
- []|\T2A/ptm/m/it/14.4 h=12| 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 393
- []
-
-[18]
-Overfull \hbox (58.68741pt too wide) in paragraph at lines 394--395
-\T2A/ptm/m/it/14.4 em-ploy-ment rate in Rus-sia. FAVAR spec-i-fi-ca-tion is suc
-h that $\OML/ztmcm/m/it/14.4 Y[] \OT1/ztmcm/m/n/14.4 = (\OML/ztmcm/m/it/14.4 aR
-UCPI[]; RUUNR \OT1/ztmcm/m/n/14.4 =
- []
-
-
-Overfull \hbox (5.48741pt too wide) in paragraph at lines 398--398
- []|\T2A/ptm/m/it/14.4 ARIMA| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 400--400
  []|\T2A/ptm/m/it/14.4 h=1| 
  []
 
 
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 401--401
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 386--386
  []|\T2A/ptm/m/it/14.4 h=2| 
  []
 
 
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 402--402
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 387--387
  []|\T2A/ptm/m/it/14.4 h=3| 
  []
 
 
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 403--403
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 388--388
  []|\T2A/ptm/m/it/14.4 h=4| 
  []
 
 
-Overfull \hbox (3.92879pt too wide) in paragraph at lines 403--403
- []|\T2A/ptm/m/it/14.4 22.31*| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 404--404
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 389--389
  []|\T2A/ptm/m/it/14.4 h=5| 
  []
 
 
-Overfull \hbox (3.92879pt too wide) in paragraph at lines 404--404
- []|\T2A/ptm/m/it/14.4 22.90*| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 405--405
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 390--390
  []|\T2A/ptm/m/it/14.4 h=6| 
  []
 
 
-Overfull \hbox (3.92879pt too wide) in paragraph at lines 405--405
- []|\T2A/ptm/m/it/14.4 22.68*| 
- []
-
-
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 406--406
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 391--391
  []|\T2A/ptm/m/it/14.4 h=7| 
  []
 
 
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 407--407
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 392--392
  []|\T2A/ptm/m/it/14.4 h=8| 
  []
 
 
-Overfull \hbox (10.90778pt too wide) in paragraph at lines 408--408
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 393--393
  []|\T2A/ptm/m/it/14.4 h=9| 
  []
 
 
-Overfull \hbox (3.92879pt too wide) in paragraph at lines 408--408
- []|\T2A/ptm/m/it/14.4 24.25*| 
- []
-
-
-Overfull \hbox (17.76129pt too wide) in paragraph at lines 409--409
+Overfull \hbox (17.76129pt too wide) in paragraph at lines 394--394
  []|\T2A/ptm/m/it/14.4 h=10| 
  []
 
 
-Overfull \hbox (3.92879pt too wide) in paragraph at lines 409--409
- []|\T2A/ptm/m/it/14.4 22.72*| 
- []
-
-
-Overfull \hbox (17.76129pt too wide) in paragraph at lines 410--410
+Overfull \hbox (17.76129pt too wide) in paragraph at lines 395--395
  []|\T2A/ptm/m/it/14.4 h=11| 
  []
 
 
-Overfull \hbox (3.92879pt too wide) in paragraph at lines 410--410
- []|\T2A/ptm/m/it/14.4 22.70*| 
- []
-
-
-Overfull \hbox (17.76129pt too wide) in paragraph at lines 411--411
+Overfull \hbox (17.76129pt too wide) in paragraph at lines 396--396
  []|\T2A/ptm/m/it/14.4 h=12| 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 414
+Underfull \vbox (badness 10000) detected at line 399
  []
 
-[19] [20]
+[19]
+Overfull \hbox (29.67671pt too wide) in paragraph at lines 400--401
+\T2A/ptm/m/it/14.4 em-ploy-ment rate in Rus-sia. In this FAVAR spec-i-fi-ca-tio
+n $\OML/ztmcm/m/it/14.4 Y[] \OT1/ztmcm/m/n/14.4 = (\OML/ztmcm/m/it/14.4 aRUCPI[
+]; RUUNR \OT1/ztmcm/m/n/14.4 =
+ []
 
-LaTeX Warning: Command \l invalid in math mode on input line 427.
+
+Overfull \hbox (5.48741pt too wide) in paragraph at lines 404--404
+ []|\T2A/ptm/m/it/14.4 ARIMA| 
+ []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 427.
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 406--406
+ []|\T2A/ptm/m/it/14.4 h=1| 
+ []
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 429--432
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 407--407
+ []|\T2A/ptm/m/it/14.4 h=2| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 408--408
+ []|\T2A/ptm/m/it/14.4 h=3| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 409--409
+ []|\T2A/ptm/m/it/14.4 h=4| 
+ []
+
+
+Overfull \hbox (3.92879pt too wide) in paragraph at lines 409--409
+ []|\T2A/ptm/m/it/14.4 22.31*| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 410--410
+ []|\T2A/ptm/m/it/14.4 h=5| 
+ []
+
+
+Overfull \hbox (3.92879pt too wide) in paragraph at lines 410--410
+ []|\T2A/ptm/m/it/14.4 22.90*| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 411--411
+ []|\T2A/ptm/m/it/14.4 h=6| 
+ []
+
+
+Overfull \hbox (3.92879pt too wide) in paragraph at lines 411--411
+ []|\T2A/ptm/m/it/14.4 22.68*| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 412--412
+ []|\T2A/ptm/m/it/14.4 h=7| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 413--413
+ []|\T2A/ptm/m/it/14.4 h=8| 
+ []
+
+
+Overfull \hbox (10.90778pt too wide) in paragraph at lines 414--414
+ []|\T2A/ptm/m/it/14.4 h=9| 
+ []
+
+
+Overfull \hbox (3.92879pt too wide) in paragraph at lines 414--414
+ []|\T2A/ptm/m/it/14.4 24.25*| 
+ []
+
+
+Overfull \hbox (17.76129pt too wide) in paragraph at lines 415--415
+ []|\T2A/ptm/m/it/14.4 h=10| 
+ []
+
+
+Overfull \hbox (3.92879pt too wide) in paragraph at lines 415--415
+ []|\T2A/ptm/m/it/14.4 22.72*| 
+ []
+
+
+Overfull \hbox (17.76129pt too wide) in paragraph at lines 416--416
+ []|\T2A/ptm/m/it/14.4 h=11| 
+ []
+
+
+Overfull \hbox (3.92879pt too wide) in paragraph at lines 416--416
+ []|\T2A/ptm/m/it/14.4 22.70*| 
+ []
+
+
+Overfull \hbox (17.76129pt too wide) in paragraph at lines 417--417
+ []|\T2A/ptm/m/it/14.4 h=12| 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 420
+ []
+
+[20] [21]
+
+LaTeX Warning: Command \l invalid in math mode on input line 433.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 433.
+
+
+Overfull \hbox (26.04132pt too wide) in alignment at lines 435--438
  [] [] [] 
  []
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 432--436
+Overfull \hbox (26.04132pt too wide) in alignment at lines 438--442
  [] [] [] 
  []
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 436--439
+Overfull \hbox (26.04132pt too wide) in alignment at lines 442--445
  [] [] [] 
  []
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 439--442
+Overfull \hbox (26.04132pt too wide) in alignment at lines 445--448
  [] [] [] 
  []
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 444.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 444.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 445.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 445.
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 446--447
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 447--448
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 448.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 448.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 449.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 449.
 
 
 LaTeX Warning: Command \l invalid in math mode on input line 450.
@@ -1435,19 +1420,22 @@ LaTeX Warning: Command \l invalid in math mode on input line 454.
 LaTeX Warning: Command \l invalid in math mode on input line 454.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 455--456
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 455.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 456--457
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 455.
 
 
-Overfull \hbox (10.52005pt too wide) in paragraph at lines 457--458
-[]|$\OT1/ztmcm/m/n/14.4 []$| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 456.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 456.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 457.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 457.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 458--459
@@ -1460,9 +1448,10 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 459--460
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 460--461
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 460.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 460.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 461--462
@@ -1475,13 +1464,8 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 462--463
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 463--464
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-Overfull \hbox (26.04132pt too wide) in alignment at lines 442--464
- [] [] [] 
+Overfull \hbox (10.52005pt too wide) in paragraph at lines 463--464
+[]|$\OT1/ztmcm/m/n/14.4 []$| 
  []
 
 
@@ -1510,16 +1494,19 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 468--469
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 469.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 469--470
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 469.
+Overfull \hbox (26.04132pt too wide) in alignment at lines 448--470
+ [] [] [] 
+ []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 470.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 470.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 470--471
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 471--472
@@ -1527,16 +1514,14 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 471--472
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 472.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 472--473
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 472.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 473.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 473.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 473--474
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 474--475
@@ -1544,14 +1529,16 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 474--475
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 475--476
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 475.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 476--477
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 475.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 476.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 476.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 477--478
@@ -1559,14 +1546,16 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 477--478
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 478--479
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 478.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 479--480
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 478.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 479.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 479.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 480--481
@@ -1589,11 +1578,6 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 483--484
  []
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 464--484
- [] [] [] 
- []
-
-[21]
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 484--485
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
@@ -1624,26 +1608,24 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 489--490
  []
 
 
+Overfull \hbox (26.04132pt too wide) in alignment at lines 470--490
+ [] [] [] 
+ []
+
+[22]
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 490--491
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 491--491
-[]|\T2A/ptm/m/it/14.4 Trade Weighted nom-i-nal ex-change rate, %
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 491--492
+[]|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 491.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 491.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 492.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 492.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 492--493
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 493--494
@@ -1651,16 +1633,14 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 493--494
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 494.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 494--495
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 494.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 495.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 495.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 495--496
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 496--497
@@ -1668,14 +1648,21 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 496--497
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 497--498
-[]|$\OT1/ztmcm/m/n/14.4 $| 
+Underfull \hbox (badness 1590) in paragraph at lines 497--497
+[]|\T2A/ptm/m/it/14.4 Trade Weighted nom-i-nal ex-change rate, %
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 498--499
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 497.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 497.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 498.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 498.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 499--500
@@ -1683,14 +1670,16 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 499--500
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 500--501
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 500.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 501--502
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 500.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 501.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 501.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 502--503
@@ -1703,133 +1692,123 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 503--504
  []
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 484--504
- [] [] [] 
- []
-
-[22]
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 504--505
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 505.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 505.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 506.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 506.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 507.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 507.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 508.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 508.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 509.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 509.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 510.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 510.
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 511--512
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 505--506
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 512--513
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 506--507
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 513--514
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 507--508
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 514.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 514.
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 515--516
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 508--509
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 516--517
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 509--510
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 517.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 517.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 518.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 518.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 519.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 519.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 520.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 520.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 521.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 521.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 522.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 522.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 523.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 523.
-
-
-Overfull \hbox (26.04132pt too wide) in alignment at lines 504--524
+Overfull \hbox (26.04132pt too wide) in alignment at lines 490--510
  [] [] [] 
  []
 
 [23]
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 524--525
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 510--511
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 511.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 511.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 512.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 512.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 513.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 513.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 514.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 514.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 515.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 515.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 516.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 516.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 517--518
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 518--519
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 519--520
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 520.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 520.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 521--522
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 522--523
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 523.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 523.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 524.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 524.
 
 
 LaTeX Warning: Command \l invalid in math mode on input line 525.
@@ -1838,14 +1817,16 @@ LaTeX Warning: Command \l invalid in math mode on input line 525.
 LaTeX Warning: Command \l invalid in math mode on input line 525.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 526--527
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 526.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 527--528
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 526.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 527.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 527.
 
 
 LaTeX Warning: Command \l invalid in math mode on input line 528.
@@ -1854,107 +1835,104 @@ LaTeX Warning: Command \l invalid in math mode on input line 528.
 LaTeX Warning: Command \l invalid in math mode on input line 528.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 529--530
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 529.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 530.
+LaTeX Warning: Command \l invalid in math mode on input line 529.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 530.
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 531--532
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 532.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 532.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 533.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 533.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 534.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 534.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 535.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 535.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 536.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 536.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 537.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 537.
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 538--539
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 539--540
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 540.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 540.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 541.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 541.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 542.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 542.
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 543--544
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-Overfull \hbox (26.04132pt too wide) in alignment at lines 524--544
+Overfull \hbox (26.04132pt too wide) in alignment at lines 510--530
  [] [] [] 
  []
 
-[24] [25]
-
-LaTeX Warning: Command \l invalid in math mode on input line 544.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 544.
+[24]
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 530--531
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 545.
+LaTeX Warning: Command \l invalid in math mode on input line 531.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 545.
+LaTeX Warning: Command \l invalid in math mode on input line 531.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 532--533
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 533--534
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 534.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 534.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 535--536
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 536.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 536.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 537--538
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 538.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 538.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 539.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 539.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 540.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 540.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 541.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 541.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 542.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 542.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 543.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 543.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 544--545
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 545--546
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 LaTeX Warning: Command \l invalid in math mode on input line 546.
@@ -1963,14 +1941,16 @@ LaTeX Warning: Command \l invalid in math mode on input line 546.
 LaTeX Warning: Command \l invalid in math mode on input line 546.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 547--548
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 547.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 548--549
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 547.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 548.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 548.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 549--550
@@ -1978,29 +1958,28 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 549--550
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 550--551
-[]|$\OT1/ztmcm/m/n/14.4 $| 
+Overfull \hbox (26.04132pt too wide) in alignment at lines 530--550
+ [] [] [] 
  []
 
+[25] [26]
 
-Underfull \hbox (badness 1675) in paragraph at lines 551--551
-[]|\T2A/ptm/m/it/14.4 Official in-ter-na-tional re-serves, Stan-dard-ized,
- []
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 551--552
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 550.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 552--553
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 550.
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 553--553
-[]|\T2A/ptm/m/it/14.4 Official in-ter-na-tional re-serves, % month on
- []
+LaTeX Warning: Command \l invalid in math mode on input line 551.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 551.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 552.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 552.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 553--554
@@ -2013,18 +1992,18 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 554--555
  []
 
 
-Overfull \hbox (10.52005pt too wide) in paragraph at lines 555--556
-[]|$\OT1/ztmcm/m/n/14.4 []$| 
- []
-
-
-Underfull \hbox (badness 2245) in paragraph at lines 556--556
-[]|\T2A/ptm/m/it/14.4 Reserves, Spe-cial Draw-ing Rights, Cur-rent
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 555--556
+[]|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 556--557
 []|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 557--557
+[]|\T2A/ptm/m/it/14.4 Official in-ter-na-tional re-serves, Stan-dard-ized,
  []
 
 
@@ -2038,6 +2017,11 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 558--559
  []
 
 
+Underfull \hbox (badness 1237) in paragraph at lines 559--559
+[]|\T2A/ptm/m/it/14.4 Official in-ter-na-tional re-serves, % month on
+ []
+
+
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 559--560
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
@@ -2048,13 +2032,13 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 560--561
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 561--562
-[]|$\OT1/ztmcm/m/n/14.4 $| 
+Overfull \hbox (10.52005pt too wide) in paragraph at lines 561--562
+[]|$\OT1/ztmcm/m/n/14.4 []$| 
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 562--562
-[]|\T2A/ptm/m/it/14.4 Monetary base (nar-row def-i-ni-tion), Cur-rent
+Underfull \hbox (badness 2245) in paragraph at lines 562--562
+[]|\T2A/ptm/m/it/14.4 Reserves, Spe-cial Draw-ing Rights, Cur-rent
  []
 
 
@@ -2063,28 +2047,13 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 562--563
  []
 
 
-Underfull \hbox (badness 3088) in paragraph at lines 563--563
-[]|\T2A/ptm/m/it/14.4 Monetary base (broad def-i-ni-tion), Cur-rent
- []
-
-
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 563--564
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 544--564
- [] [] [] 
- []
-
-[26]
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 564--565
 []|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-Underfull \hbox (badness 3029) in paragraph at lines 565--565
-[]|\T2A/ptm/m/it/14.4 Money Sup-ply M2, Stan-dard-ized, Cur-rent
  []
 
 
@@ -2093,10 +2062,9 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 565--566
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 566.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 566.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 566--567
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 567--568
@@ -2104,8 +2072,8 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 567--568
  []
 
 
-Underfull \hbox (badness 3029) in paragraph at lines 568--568
-[]|\T2A/ptm/m/it/14.4 Money Sup-ply M1, Stan-dard-ized, Cur-rent
+Underfull \hbox (badness 1371) in paragraph at lines 568--568
+[]|\T2A/ptm/m/it/14.4 Monetary base (nar-row def-i-ni-tion), Cur-rent
  []
 
 
@@ -2114,8 +2082,8 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 568--569
  []
 
 
-Underfull \hbox (badness 3029) in paragraph at lines 569--569
-[]|\T2A/ptm/m/it/14.4 Money Sup-ply M0, Stan-dard-ized, Cur-rent
+Underfull \hbox (badness 3088) in paragraph at lines 569--569
+[]|\T2A/ptm/m/it/14.4 Monetary base (broad def-i-ni-tion), Cur-rent
  []
 
 
@@ -2124,21 +2092,30 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 569--570
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 570.
+Overfull \hbox (26.04132pt too wide) in alignment at lines 550--570
+ [] [] [] 
+ []
 
-
-LaTeX Warning: Command \l invalid in math mode on input line 570.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 571.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 571.
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 572--573
+[27]
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 570--571
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 571--571
+[]|\T2A/ptm/m/it/14.4 Money Sup-ply M2, Stan-dard-ized, Cur-rent
+ []
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 571--572
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 572.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 572.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 573--574
@@ -2146,33 +2123,41 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 573--574
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 574.
+Underfull \hbox (badness 3029) in paragraph at lines 574--574
+[]|\T2A/ptm/m/it/14.4 Money Sup-ply M1, Stan-dard-ized, Cur-rent
+ []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 574.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 575.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 575.
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 576--577
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 574--575
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 577.
+Underfull \hbox (badness 3029) in paragraph at lines 575--575
+[]|\T2A/ptm/m/it/14.4 Money Sup-ply M0, Stan-dard-ized, Cur-rent
+ []
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 575--576
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 576.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 576.
 
 
 LaTeX Warning: Command \l invalid in math mode on input line 577.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 578.
+LaTeX Warning: Command \l invalid in math mode on input line 577.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 578.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 578--579
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 579--580
@@ -2186,15 +2171,15 @@ LaTeX Warning: Command \l invalid in math mode on input line 580.
 LaTeX Warning: Command \l invalid in math mode on input line 580.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 581--582
+LaTeX Warning: Command \l invalid in math mode on input line 581.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 581.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 582--583
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 582.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 582.
 
 
 LaTeX Warning: Command \l invalid in math mode on input line 583.
@@ -2203,14 +2188,10 @@ LaTeX Warning: Command \l invalid in math mode on input line 583.
 LaTeX Warning: Command \l invalid in math mode on input line 583.
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 564--584
- [] [] [] 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 584.
 
-[27]
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 584--585
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+
+LaTeX Warning: Command \l invalid in math mode on input line 584.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 585--586
@@ -2224,23 +2205,28 @@ LaTeX Warning: Command \l invalid in math mode on input line 586.
 LaTeX Warning: Command \l invalid in math mode on input line 586.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 587.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 587.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 588.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 588.
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 589--590
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 587--588
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
 
+LaTeX Warning: Command \l invalid in math mode on input line 588.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 588.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 589.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 589.
+
+
+Overfull \hbox (26.04132pt too wide) in alignment at lines 570--590
+ [] [] [] 
+ []
+
+[28]
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 590--591
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
@@ -2251,25 +2237,27 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 591--592
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 592--593
+LaTeX Warning: Command \l invalid in math mode on input line 592.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 592.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 593.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 593.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 594.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 594.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 595--596
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 593--594
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 594--595
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 595.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 595.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 596--597
@@ -2313,11 +2301,6 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 603--604
  []
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 584--604
- [] [] [] 
- []
-
-[28]
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 604--605
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
@@ -2333,15 +2316,15 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 606--607
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 607--608
+LaTeX Warning: Command \l invalid in math mode on input line 607.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 607.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 608--609
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 608.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 608.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 609--610
@@ -2349,6 +2332,11 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 609--610
  []
 
 
+Overfull \hbox (26.04132pt too wide) in alignment at lines 590--610
+ [] [] [] 
+ []
+
+[29]
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 610--611
 []|$\OT1/ztmcm/m/n/14.4 $| 
  []
@@ -2369,9 +2357,10 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 613--614
  []
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 614--615
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 614.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 614.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 615--616
@@ -2399,16 +2388,14 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 619--620
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 620.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 620--621
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 620.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 621.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 621.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 621--622
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 622--623
@@ -2421,22 +2408,14 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 623--624
  []
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 604--624
- [] [] [] 
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 624--625
+[]|$\OT1/ztmcm/m/n/14.4 $| 
  []
 
-[29]
 
-LaTeX Warning: Command \l invalid in math mode on input line 624.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 624.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 625.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 625.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 625--626
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 LaTeX Warning: Command \l invalid in math mode on input line 626.
@@ -2461,29 +2440,34 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 629--630
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 630--630
-[]|\T2A/ptm/m/it/14.4 Unemployment, Rate, Of-fi-cially reg-is-tered
+Overfull \hbox (26.04132pt too wide) in alignment at lines 610--630
+ [] [] [] 
  []
 
+[30]
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 630--631
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
-
-
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 631--632
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 630.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 632--633
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 630.
 
 
-Overfull \hbox (4.54506pt too wide) in paragraph at lines 633--634
-[]|$\OT1/ztmcm/m/n/14.4 $| 
- []
+LaTeX Warning: Command \l invalid in math mode on input line 631.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 631.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 632.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 632.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 633.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 633.
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 634--635
@@ -2496,10 +2480,14 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 635--636
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 636.
+Underfull \hbox (badness 6758) in paragraph at lines 636--636
+[]|\T2A/ptm/m/it/14.4 Unemployment, Rate, Of-fi-cially reg-is-tered
+ []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 636.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 636--637
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 637--638
@@ -2507,10 +2495,9 @@ Overfull \hbox (4.54506pt too wide) in paragraph at lines 637--638
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 638.
-
-
-LaTeX Warning: Command \l invalid in math mode on input line 638.
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 638--639
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
 
 
 Overfull \hbox (4.54506pt too wide) in paragraph at lines 639--640
@@ -2534,31 +2521,63 @@ LaTeX Warning: Command \l invalid in math mode on input line 642.
 LaTeX Warning: Command \l invalid in math mode on input line 642.
 
 
-Overfull \hbox (26.04132pt too wide) in alignment at lines 624--643
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 643--644
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 644.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 644.
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 645--646
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 646--647
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+Overfull \hbox (4.54506pt too wide) in paragraph at lines 647--648
+[]|$\OT1/ztmcm/m/n/14.4 $| 
+ []
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 648.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 648.
+
+
+Overfull \hbox (26.04132pt too wide) in alignment at lines 630--649
  [] [] [] 
  []
 
-[30] [31] [32] (Diploma.bbl) [33] (Diploma.aux)
+[31] [32] [33] (Diploma.bbl) [34] (Diploma.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 8409 strings out of 493333
- 129122 string characters out of 3139194
- 315197 words of memory out of 3000000
- 11652 multiletter control sequences out of 15000+200000
+ 8515 strings out of 493333
+ 130463 string characters out of 3139194
+ 316577 words of memory out of 3000000
+ 11749 multiletter control sequences out of 15000+200000
  46071 words of font info for 107 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,10n,29p,1500b,277s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,10n,29p,1557b,277s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\la
 rm1000.pk> <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\d
 pi600\larm0700.pk> <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\
 lh-t2a\dpi600\larm1095.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.
 enc} <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\
-larm1728.pk> <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a
-\dpi600\larm2074.pk> <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\u
-nknown\unknown\dpi600\larm1200.pk> <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fon
+larm1728.pk> <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\unknown\u
+nknown\dpi600\larm1200.pk> <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fonts\pk\lj
+four\lh\lh-t2a\dpi600\larm2074.pk> <C:\Users\petrg\AppData\Local\MiKTeX\2.9\fon
 ts\pk\ljfour\lh\lh-t2a\dpi600\larm1440.pk><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
@@ -2569,9 +2588,9 @@ rogram Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on Diploma.pdf (33 pages, 232991 bytes).
+Output written on Diploma.pdf (34 pages, 248889 bytes).
 PDF statistics:
- 414 PDF objects out of 1000 (max. 8388607)
+ 460 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
