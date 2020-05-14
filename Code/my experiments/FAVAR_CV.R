@@ -6,7 +6,7 @@ library("lmtest")
 #setwd("C:/Users/petrg/Desktop/Диплом/Code/my experiments/")
 #source("my_tsCV.R")
 
-fore_FAVAR <- function(X, Y, X_slow, K, y_name, i_name, h, y){
+fore_FAVAR <- function(X, Y, X_slow, K, y_name, i_name, h, y, use_VAR = F){
   start <- start(X)
   frequency <- frequency(X)
   X = X[1:length(y),]
@@ -54,10 +54,14 @@ fore_FAVAR <- function(X, Y, X_slow, K, y_name, i_name, h, y){
   Fr = F0 - Ffast_ktimes*coeffs
   
   # FAVAR with clean factors
-  Y_for_VAR = cbind(Fr, Y)
-  factor_names = paste('factor', 1:K)
+  if(use_VAR == F){
+    Y_for_VAR = cbind(Fr, Y)
+    factor_names = paste('factor', 1:K)
+    colnames(Y_for_VAR)[1:K] <- factor_names
+  }
+  else 
+    Y_for_VAR = Y
   
-  colnames(Y_for_VAR)[1:K] <- factor_names
   Y_for_VAR <- ts(Y_for_VAR, start = start, frequency = frequency)
   VARselect(Y_for_VAR)
   p = VARselect(Y_for_VAR)$selection[1] # according AIC 

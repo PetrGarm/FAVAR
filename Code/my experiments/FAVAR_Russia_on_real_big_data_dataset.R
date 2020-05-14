@@ -69,6 +69,12 @@ errors_FAVAR_cv <- my_tsCV(y = Y[,2], forecastfunction = fore_FAVAR, y_name="aRU
                            initial = 200)
 res_FAVAR <- sqrt(colMeans(errors_FAVAR_cv^2, na.rm = TRUE))
 
+
+errors_VAR_cv <- my_tsCV(y = Y[,2], forecastfunction = fore_FAVAR, y_name="aRUCPI_slow",
+                         h = 12, X = X, Y = Y, X_slow = X_slow, K = 1, i_name = "RUCBIR=ECI", use_VAR = T, 
+                         initial = 200)
+res_VAR <- sqrt(colMeans(errors_VAR_cv^2, na.rm = TRUE))
+
 ### auto.ARIMA model CV
 fore_arima <- function(y, h) {
   print(paste0(240 - length(y), " iterations left"))
@@ -97,7 +103,8 @@ errors_rw <- tsCV(Y[,2], forecastfunction = fore_rwf, h = 12,
                   initial = 200)
 res_rw <- sqrt(colMeans(errors_rw^2, na.rm = TRUE))
 
-results <- list(FAVAR = res_FAVAR, ARIMA = res_ARIMA, ETS = res_ETS, RWD = res_rw)
+
+results <- list(FAVAR = res_FAVAR, ARIMA = res_ARIMA, ETS = res_ETS, VAR = res_VAR, RWD = res_rw)
 results <- t(data.frame(results))
 View(results)
 
@@ -127,6 +134,11 @@ errors_FAVAR_cv_unemp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_
                            initial = 200)
 res_FAVAR_unemp <- sqrt(colMeans(errors_FAVAR_cv_unemp^2, na.rm = TRUE))
 
+errors_VAR_cv_unemp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_name,
+                         h = 12, X = X, Y = Y, X_slow = X_slow, K = 1, i_name = i_name, use_VAR = T, 
+                         initial = 200)
+res_VAR_unemp <- sqrt(colMeans(errors_VAR_cv_unemp^2, na.rm = TRUE))
+
 errors_auto_arima_cv_unemp <- tsCV(y, forecastfunction = fore_arima, h = 12,
                              initial = 200)
 res_ARIMA_unemp <- sqrt(colMeans(errors_auto_arima_cv_unemp^2, na.rm = TRUE))
@@ -139,7 +151,8 @@ errors_rw_unemp <- tsCV(y, forecastfunction = fore_rwf, h = 12,
                   initial = 200)
 res_rw_unemp <- sqrt(colMeans(errors_rw_unemp^2, na.rm = TRUE))
 
-results_unemp <- list(FAVAR = res_FAVAR_unemp, ARIMA = res_ARIMA_unemp, ETS = res_ETS_unemp, RWD = res_rw_unemp)
+results_unemp <- list(FAVAR = res_FAVAR_unemp, ARIMA = res_ARIMA_unemp, ETS = res_ETS_unemp, 
+                      VAR = res_VAR_unemp, RWD = res_rw_unemp)
 results_unemp <- t(data.frame(results_unemp))
 View(results_unemp)
 
@@ -203,6 +216,11 @@ errors_FAVAR_cv_gdp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_na
                                  initial = 144)
 res_FAVAR_gdp <- sqrt(colMeans(errors_FAVAR_cv_gdp^2, na.rm = TRUE))
 
+errors_VAR_cv_gdp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_name,
+                               h = 12, X = X, Y = Y, X_slow = X_slow, K = 1, i_name = i_name, use_VAR = T, 
+                               initial = 144)
+res_VAR_gdp <- sqrt(colMeans(errors_VAR_cv_gdp^2, na.rm = TRUE))
+
 errors_auto_arima_cv_gdp <- tsCV(y, forecastfunction = fore_arima, h = 12,
                                    initial = 144)
 res_ARIMA_gdp <- sqrt(colMeans(errors_auto_arima_cv_gdp^2, na.rm = TRUE))
@@ -215,13 +233,14 @@ errors_rw_gdp <- tsCV(y, forecastfunction = fore_rwf, h = 12,
                         initial = 144)
 res_rw_gdp <- sqrt(colMeans(errors_rw_gdp^2, na.rm = TRUE))
 
-results_gdp <- list(FAVAR = res_FAVAR_gdp, ARIMA = res_ARIMA_gdp, ETS = res_ETS_gdp, RWD = res_rw_gdp)
+results_gdp <- list(FAVAR = res_FAVAR_gdp, ARIMA = res_ARIMA_gdp, ETS = res_ETS_gdp, 
+                    VAR = res_VAR_gdp, RWD = res_rw_gdp)
 results_gdp <- t(data.frame(results_gdp))
 View(results_gdp)
 
 
 
-###
+### LATEX table generation
 variables <- colnames(ts_gdp)
 var_diffs <- transformations_gdp
 data_info <- read_excel("C:/Users/petrg/Desktop/Данные для диплома/real_big_data_alina_info.xlsx", 
@@ -229,7 +248,7 @@ data_info <- read_excel("C:/Users/petrg/Desktop/Данные для диплом
 
 for (i in 1:length(variables)) {
   transform_code <- NA
-  info <- sub("Russia, "," ",data_info[data_info$RIC == sub("_slow","",variables[i]),]$Name)
+  info <- sub("%","\\\\%",sub("Russia, "," ",data_info[data_info$RIC == sub("_slow","",variables[i]),]$Name))
   if(var_diffs[i] == 0)
     transform_code <- '$\\l$'
    if(var_diffs[i] == 1)
@@ -237,7 +256,12 @@ for (i in 1:length(variables)) {
    if(var_diffs[i] == 2) 
    transform_code <- paste0('$\\Delta^',var_diffs[i],'$')
   
-  cat(paste0(i,". ",sub('_slow', '*',variables[i]), ' & ',info ,'& ', transform_code, '\\\\', '\n'))
+  cat(paste0(i,". ",sub('_slow', '*',variables[i]), ' & ',info ,' & ', transform_code, '\\\\', '\n'))
 }
 
 
+library(xtable)
+cpi_latex <- xtable(t(results*100), caption = 'RMSE $\\times$ 100 for CPI forecasts')
+print(cpi_latex,hline.after=c(-1, 0), tabular.environment = "longtable")
+unemp_latex <- xtable(t(results*100), caption = 'RMSE $\\times$ 100 for unemployment rate forecasts')
+print(cpi_latex,hline.after=c(-1, 0), tabular.environment = "longtable")
