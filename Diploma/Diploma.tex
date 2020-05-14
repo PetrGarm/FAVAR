@@ -15,6 +15,10 @@
 \usepackage{multirow}
 \usepackage[official]{eurosym}
 
+
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
 \usepackage[14pt]{extsizes} % Возможность сделать 14-й шрифт
 \geometry{top=25mm}
 \geometry{bottom=25mm}
@@ -103,7 +107,8 @@
 	\newpage
 	
 \begin{abstract}
-	There is a number of models used for time series forecasts that focuses on incorporating a huge set of information. Conventional VAR fails to employ such an approach because of "degrees of freedom" problem. The focus of this paper is to test factor-augmented VAR's ability to forecast main Russian macroeconomic indicators. Results will be presented in a table of RMSEs for different horizons using time series cross validation procedure for each one. There are reasons to believe, that FAVAR will show better results than univariate models in long-term forecasts. 
+	There is several models used for time series forecasts that focuses on incorporating a huge set of information. Conventional VAR fails to employ such an approach because of "degrees of freedom" problem. The focus of this paper is to test factor-augmented VAR's ability to forecast main Russian macroeconomic indicators. Results will be presented in a table of RMSEs for different horizons using time series cross validation procedure for each one. There are reasons to believe, that FAVAR will show better results than univariate models in long-term forecasts.
+	 
 \end{abstract}
 \section{Introduction}
 \subsection{Overview}
@@ -131,7 +136,7 @@ Overall, literature suggest that potential of FAVAR model for time series predic
 \subsection{Methods}
 There are several approaches to measure quality of time series prediction models. Each method, however, captures one side of the model. Traditional train test split is quite sensitive to split proportion and also to structural changes occured after the end of training set. For this reason, it is not fully accurate to perform this method in their traditional form. 
 
-Nonetheless, it is possible to account for h-horizon prediction power performing time-series cross validation and treat a forecast for each horizon separately. Still results of such procedure may be argued, since a robust estimate of a model's accuracy requires a large number of observations that is problematic for Russian data available. For this reason, I will measure models' performance using time-series cross-validation with expanding window.
+Nonetheless, it is possible to account for h-horizon prediction power performing time series cross validation and treat a forecast for each horizon separately. Still results of such procedure may be argued, since a robust estimate of a model's accuracy requires a large number of observations that is problematic for Russian data available. For this reason, I will measure models' performance using time series cross-validation with expanding window.
 
 Forecasts are measured on RMSE (root of mean square error) metric
 as it is quite interpretable. Chosen measure will be evaluated for different horizons separately. The formula for h-th horizon as follows:
@@ -340,10 +345,78 @@ Another approach, is to treat variable of interest $z_t$ as "informational" (inc
 
 \section{Data}
 
-Data was collected from Thomson Reuters database. Dataset includes 199 monthly variables, that are assumed to represent economic situation in Russia, starting from 01/01/2000 and contains 240 observations maximum. Original data involved missings, such variables were dropped before the estimation procedure. To be in line with \cite{bernanke2005measuring} original time series were transformed (one or two times differencing) to induce stationarity\footnote{According to KPSS test}. In addition, for convenience original time-series were standardised to have zero mean and unit standard deviation. Though, in order to obtain fair results, seasonal component in considered time-series was not removed, since benchmark models are capable of handling seasonality in data. One can still decompose original time-series on seasonal and trend components, though FAVAR methodology cannot be applied to produce seasonal component forecasts, so it becomes mix of FAVAR and other model for seasonal component. Probably such an approach will yield more accurate forecasts, but the goal of this paper to check pure FAVAR model prediction power.
+Data was collected from Thomson Reuters database. Dataset includes 199 monthly variables, that are assumed to represent economic situation in Russia, starting from 01/01/2000 and contains 240 observations maximum. Original data involved missings, such variables were dropped before the estimation procedure. To be in line with \cite{bernanke2005measuring} original time series were transformed (one or two times differencing) to induce stationarity\footnote{According to KPSS test}. In addition, for convenience original time series were standardised to have zero mean and unit standard deviation. Though, in order to obtain fair results, seasonal component in considered time series was not removed, since benchmark models are capable of handling seasonality in data. One can still decompose original time series on seasonal and trend components, though FAVAR methodology cannot be applied to produce seasonal component forecasts, so it becomes mix of FAVAR and other model for seasonal component. Probably such an approach will yield more accurate forecasts, but the goal of this paper to check pure FAVAR model prediction power.
 
 Depending on variable being forecasted different number of observations was used: 238 in case of CPI and unemployment rate, 138 in case of GDP Y/Y \% change forecasts. 
 
+\section{Results}
+In order to understand FAVAR model's predictive power I decided to compare its results on cross-validation with popular univariate models, such as: ETS, ARIMA and simple random walk with drift; and restricted to FAVAR model -- standard VAR $(K=0)$. I treat variable of interest as being observed, so include it directly in $Y_t$ vector. For ARIMA and ETS optimal model selection I used auto-ARIMA and auto-ETS funcions in "forecast" R package, that select best model specification according to AIC. Optimal lag of resulting VAR models is also selected using AIC. 
+\begin{longtable}{P{0.5cm}P{3cm}P{1.5cm}P{1.2cm}P{1.2cm}P{1.2cm}}
+	\hline \hline
+	& FAVAR & ARIMA & ETS & VAR & RWD \\ 
+	\hline
+	h=1 & 0.70* & 0.86 & 0.76 & 0.83 & 0.93 \\ 
+	h=2 & 0.95* & 1.09 & 1.02 & 1.07 & 1.37 \\ 
+	h=3 & 1.01* & 1.07 & 1.06 & 1.12 & 1.54 \\ 
+	h=4 & 0.96* & 1.03 & 1.10 & 1.13 & 1.58 \\ 
+	h=5 & 0.91* & 1.03 & 1.05 & 1.13 & 1.49 \\ 
+	h=6 & 0.95* & 1.07 & 1.07 & 1.15 & 1.47 \\ 
+	h=7 & 1.00* & 1.05 & 1.19 & 1.17 & 1.65 \\ 
+	h=8 & 1.06 & 0.96* & 1.24 & 1.19 & 1.78 \\ 
+	h=9 & 1.05 & 0.99* & 1.26 & 1.18 & 1.75 \\ 
+	h=10 & 0.94* & 0.98 & 1.21 & 1.02 & 1.57 \\ 
+	h=11 & 0.90* & 0.99 & 1.23 & 0.97 & 1.35 \\ 
+	h=12 & 0.90* & 1.04 & 1.16 & 0.98 & 1.08 \\
+	\hline
+	\caption{\label{cpi_res}RMSE $\times$ 100 for CPI forecasts} 
+\end{longtable}
+Table \ref{cpi_res} shows cross-validation results for CPI forecasting. FAVAR specification includes two variables in $Y_t = (aRUCPI_t, RUCBIR=ECI_t)'$ and one latent factor $K=1$. Interesting that increasing number of factors deteriorates model's quality. One can see, that such FAVAR specification completely outperform other models almost at each horizon. 
+
+\begin{longtable}{P{0.5cm}P{3cm}P{1.5cm}P{1.2cm}P{1.2cm}P{1.2cm}}
+	\hline \hline
+	& FAVAR & ARIMA & ETS & VAR & RWD \\ 
+	\hline
+	h=1 & 10.31 & 6.97* & 9.90 & 7.13 & 11.39 \\ 
+	h=2 & 10.25 & 6.95 & 9.75 & 6.74* & 10.97 \\ 
+	h=3 & 8.68 & 6.56 & 9.90 & 6.52* & 10.06 \\ 
+	h=4 & 8.04 & 6.60 & 9.86 & 6.36* & 12.06 \\ 
+	h=5 & 6.88 & 5.86 & 10.02 & 6.22* & 12.00 \\ 
+	h=6 & 6.10 & 5.94* & 9.70 & 6.44 & 11.36 \\ 
+	h=7 & 5.74* & 6.00 & 9.27 & 6.56 & 12.64 \\ 
+	h=8 & 5.71* & 6.09 & 9.57 & 6.44 & 10.90 \\ 
+	h=9 & 6.15* & 6.15 & 9.66 & 6.17 & 10.40 \\ 
+	h=10 & 5.90* & 5.96 & 9.21 & 6.42 & 10.10 \\ 
+	h=11 & 5.86* & 5.89 & 9.67 & 6.52 & 9.32 \\ 
+	h=12 & 6.43 & 5.70* & 9.51 & 6.43 & 9.09 \\ 
+	\hline
+	\caption{\label{res_unem}RMSE $\times$ 100 for unemployment rate forecasts} 
+\end{longtable}
+Table \ref{res_unem} shows models' cross-validation errors in attempts to  forecast unemployment rate in Russia. FAVAR specification is such that $Y_t= (aRUCPI_t, RUUNR=ECI_t)'$ and $K=1$. As with CPI, increasing of $K$ leads to weak performance. As one can see, for such variable, FAVAR produces best forecasts only on long horizons. Yet one can experiment with proper $Y_t$ selection to obtain lower error at short-term forecasts.
+
+\begin{longtable}{P{0.5cm}P{3cm}P{1.5cm}P{1.2cm}P{1.2cm}P{1.2cm}}
+	\hline
+	& FAVAR & ARIMA & ETS & VAR & RWD \\ 
+	\hline
+	h=1 & 19.88* & 22.34 & 21.67 & 20.10 & 38.56 \\ 
+	h=2 & 20.44* & 23.22 & 22.07 & 20.79 & 25.65 \\ 
+	h=3 & 21.92* & 23.79 & 22.59 & 22.37 & 35.73 \\ 
+	h=4 & 22.40 & 23.13 & 22.35 & 22.31* & 31.02 \\ 
+	h=5 & 22.96 & 23.49 & 22.94 & 22.90* & 34.74 \\ 
+	h=6 & 22.75 & 22.98 & 22.82 & 22.68* & 30.00 \\ 
+	h=7 & 23.06* & 23.66 & 23.15 & 23.17 & 35.66 \\ 
+	h=8 & 23.46* & 24.45 & 23.53 & 23.51 & 34.69 \\ 
+	h=9 & 24.52 & 25.21 & 24.29 & 24.25* & 33.81 \\ 
+	h=10 & 22.74 & 25.06 & 22.72* & 22.75 & 33.99 \\ 
+	h=11 & 22.98 & 24.59 & 22.74 & 22.70* & 33.43 \\ 
+	h=12 & 23.09* & 24.29 & 23.15 & 23.17 & 25.37 \\ 
+	\hline
+	\caption{\label{gdp_res}RMSE $\times$ 100 for GDP forecasts} 
+\end{longtable}
+
+At table \ref{gdp_res} one can find cross-validation error for corresponding models, that are used for GDP growth rate forecasts. It is important to mention again, that for this variable only 168 observations were used, because of missings for interested time series. That might one reason explaining model's performance. Surprisingly, FAVAR produces best forecasts mostly for short-term, rather than for long-term points as was expected. FAVAR in $Y_t=(RUGDP=ECI_t, RUCBIR=ECI_t)'$ with $K=2$ shows best performance on 6 out of 12 horizons, though difference is significant only for $h=\overline{1,3}$.
+
+\section{Conclusion}
+Results showed that FAVAR is quite competitive model in a forecasting task, even though it was initially developed as the solution for "price puzzle", that is more about impulse response functions, rather than predictions. For some series FAVAR can completely outperform traditional univariate models as well as multivariate VAR. In addition, FAVAR allows incorporating as much variables as one wants and there are reasons to believe that this will improve model's performance. Nevertheless, it still remains a question whether cost of data collection outweigh potential forecast improvement for standard VAR. 
 
 
 
@@ -351,9 +424,9 @@ Depending on variable being forecasted different number of observations was used
 \section*{Appendixes}
 \appendix
 \section{Data Description}
-Table bellow provides information used dataset. An asterisk *, after mnemonic of some series shows that such variables were assumed to be slow-moving. Each time-series is provided with transformation applied to the original data: $\l$ -- no transformations, $\Delta$ -- first difference and $\Delta^2$ -- second difference. 
+Table bellow provides information about used dataset. An asterisk *, after mnemonic of some series shows that such variables were assumed to be slow-moving. Each time series is provided with transformation applied to the original data: $\l$ -- no transformations, $\Delta$ -- first difference and $\Delta^2$ -- second difference. 
 \begin{center}
-	\begin{longtable}{p{5.5cm} p{10cm} p{0.15cm}} 
+	\begin{longtable}{p{5.5cm} p{10cm} p{0.15cm}}
 		
 		\hline \hline \multicolumn{1}{c}{\textbf{Mnemonic}} & \multicolumn{1}{c}{\textbf{Description}} & \multicolumn{1}{c}{\textbf{}} \\ \hline 
 		\endfirsthead
@@ -423,7 +496,7 @@ Table bellow provides information used dataset. An asterisk *, after mnemonic of
 	53. aRUIRECE/C &  Real effective exchange rate (REER) based on consumer price index, 2010=100, Not SA, Price Index & $\Delta$\\
 	54. aRUINECE/C &  Nominal effective exchange rate (NEER) based on consumer price index, 2010=100, Not SA, Price Index & $\Delta$\\
 	55. aRUBISNXBR &  BIS, Nominal Broad Effective Exchange Rate Index & $\Delta$\\
-	56. aRUXRUSD &  RUSSIAN ROUBLES TO US \$ & $\Delta$\\
+	56. aRUXRUSD &  Russian roubles to US \$ & $\Delta$\\
 	57. RUGDP=ECI* &  GDP, Chg Y/Y & $\Delta$\\
 	58. aRUTREV* &  Revenue, Federal budget, Current Prices & $\Delta$\\
 	59. aRUPFEXP* &  Expenditure, Current Prices & $\Delta$\\
@@ -563,10 +636,10 @@ Table bellow provides information used dataset. An asterisk *, after mnemonic of
 	193. BrentPP & Brent Price (\%) & $\l$\\
 	194. WTIP & WTI Price nominal & $\Delta$\\
 	195. WTIPP & WTI Price (\%) & $\l$\\
-	196. RUEURP &  RUSSIAN ROUBLES TO EU \euro{}, Close & $\Delta$\\
-	197. RUEURMAX &  RUSSIAN ROUBLES TO EU \euro{}, Max & $\Delta$\\
-	198. RUEURMIN &  RUSSIAN ROUBLES TO EU \euro{}, Min & $\Delta$\\
-	199. RUEURPP &  RUSSIAN ROUBLES TO EU \euro{}, \% change & $\l$\\
+	196. RUEURP &  Russian roubles to EU \euro{}, Close & $\Delta$\\
+	197. RUEURMAX &  Russian roubles to EsU \euro{}, Max & $\Delta$\\
+	198. RUEURMIN &  Russian roubles to EU \euro{}, Min & $\Delta$\\
+	199. RUEURPP &  Russian roubles to EU \euro{}, \% change & $\l$\\
 	\end{longtable}
 \end{center}
 
