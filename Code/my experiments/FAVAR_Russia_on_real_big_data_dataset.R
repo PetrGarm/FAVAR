@@ -174,7 +174,7 @@ ts_gdp <- ts(df_gdp, start=c(2005,11), frequency = 12)
 N_gdp <- dim(ts_gdp)[2]
 T_gdp <- dim(ts_gdp)[1]
 
-transformations_gdp <- rep(0, N)
+transformations_gdp <- rep(0, N_gdp)
 
 # Standardize & SA for some reason (correct PCA extraction probably)
 for (i in 1:N_gdp){

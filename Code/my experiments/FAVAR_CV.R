@@ -67,7 +67,7 @@ fore_FAVAR <- function(X, Y, X_slow, K, y_name, i_name, h, y, use_VAR = F){
   p = VARselect(Y_for_VAR)$selection[1] # according AIC 
   
   var <- VAR(Y_for_VAR, p)
-  y_hat <- forecast(var, h=h)
+  y_hat <- forecast::forecast(var, h=h)
   return(y_hat)
 }
 res_random_walk_drift <- 
