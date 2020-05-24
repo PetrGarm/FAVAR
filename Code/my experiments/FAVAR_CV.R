@@ -3,9 +3,6 @@ library("forecast")
 library("vars")
 library("lmtest")
 
-#setwd("C:/Users/petrg/Desktop/Диплом/Code/my experiments/")
-#source("my_tsCV.R")
-
 fore_FAVAR <- function(X, Y, X_slow, K, y_name, i_name, h, y, use_VAR = F){
   start <- start(X)
   frequency <- frequency(X)
@@ -70,40 +67,3 @@ fore_FAVAR <- function(X, Y, X_slow, K, y_name, i_name, h, y, use_VAR = F){
   y_hat <- forecast::forecast(var, h=h)
   return(y_hat)
 }
-res_random_walk_drift <- 
-  sqrt(mean(residuals(rwf(Y[400:511,3], drift=TRUE))^2, na.rm=TRUE)) #RMSE
-
-errors_FAVAR_cv <- my_tsCV(y = Y[,3], forecastfunction = fore_FAVAR, y_name="FFR",
-                     h = 12, X = X, Y = Y, X_slow = X_slow, K = 4, i_name = "FFR", 
-                     initial = 400)
-res_FAVAR <- sqrt(colMeans(errors_FAVAR_cv^2, na.rm = TRUE))
-
-
-### auto.ARIMA model CV
-fore_arima <- function(y, h) {
-  print(paste0(511 - length(y), " iterations left"))
-  return(forecast(auto.arima(y) ,h = h))
-}
-errors_auto_arima_cv <- tsCV(Y[,3], forecastfunction = fore_arima, h = 12,
-                             initial = 400)
-res_ARIMA <- sqrt(colMeans(errors_auto_arima_cv^2, na.rm = TRUE))
-
-fore_ets <- function(y, h) {
-  print(paste0(511 - length(y), " iterations left"))
-  return(forecast(ets(y) ,h = h))
-}
-errors_auto_ets_cv <- tsCV(Y[,3], forecastfunction = fore_ets, h = 12,
-                             initial = 400)
-res_ETS <- sqrt(colMeans(errors_auto_ets_cv^2, na.rm = TRUE))
-
-fore_rwf <- function(y, h) {
-  model <- Arima(y,order = c(0,1,0), include.drift = TRUE)
-  return(forecast(model, h = h))
-}
-errors_rw <- tsCV(Y[,3], forecastfunction = fore_rwf, h = 12,
-                           initial = 400)
-res_rw <- sqrt(colMeans(errors_rw^2, na.rm = TRUE))
-
-results <- list(FAVAR = res_FAVAR, ARIMA = res_ARIMA, ETS = res_ETS, RWD = res_rw)
-results <- t(data.frame(results))
-View(results)

@@ -6,7 +6,7 @@ library("lmtest")
 
 setwd("C:/Users/petrg/Desktop/Диплом/Code/my experiments/")
 source("my_tsCV.R")
-#source("FAVAR_CV.R")
+source("FAVAR_CV.R")
 
 for_modeling <- read_excel("C:/Users/petrg/Desktop/Данные для диплома/real_big_data_alina.xlsx", 
                             range = "R2C3:R242C296")
@@ -110,7 +110,6 @@ View(results)
 
 
 ### unemp
-#y_names <- c("RUUNR=ECI_slow", "RUCBIR=ECI")
 y_names <- c("aRUCPI_slow", "RUUNR=ECI_slow")
 y_index <- seq(N)[colnames(ts) %in% y_names]
 
