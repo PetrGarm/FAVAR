@@ -48,18 +48,15 @@ for (i in 1:N) {
 }
 ts <- na.omit(ts)
 
-slow_index <- seq(N)[endsWith(colnames(ts), "_slow")]
 y_names <- c("aRUCPI_slow", "RUCBIR=ECI")
 #y_names <- c("aRUCPI_slow", "RUCBIR=ECI", "RUUNR=ECI_slow")
 y_index <- seq(N)[colnames(ts) %in% y_names]
 
 '%not_in%' <- Negate('%in%')
 x_index <- which(seq(N) %not_in% y_index)
-slow_index_not_y <- slow_index[slow_index %not_in% y_index] # w.r.t ts object
 
 Y <- ts[,y_index]
 X <- ts[,x_index]
-X_slow <- ts[,slow_index_not_y]
 print(colnames(Y))
 T <- dim(Y)[1]
 
@@ -71,7 +68,7 @@ res_FAVAR <- sqrt(colMeans(errors_FAVAR_cv^2, na.rm = TRUE))
 
 
 errors_VAR_cv <- my_tsCV(y = Y[,2], forecastfunction = fore_FAVAR, y_name="aRUCPI_slow",
-                         h = 12, X = X, Y = Y, X_slow = X_slow, K = 1, i_name = "RUCBIR=ECI", use_VAR = T, 
+                         h = 12, X = X, Y = Y, K = 1, i_name = "RUCBIR=ECI", use_VAR = T, 
                          initial = 200)
 res_VAR <- sqrt(colMeans(errors_VAR_cv^2, na.rm = TRUE))
 
@@ -129,12 +126,12 @@ y <- Y[,2]
 
 source("my_tsCV.R")
 errors_FAVAR_cv_unemp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_name,
-                           h = 12, X = X, Y = Y, X_slow = X_slow, K = 1, i_name = i_name, 
+                           h = 12, X = X, Y = Y , K = 1, i_name = i_name, 
                            initial = 200)
 res_FAVAR_unemp <- sqrt(colMeans(errors_FAVAR_cv_unemp^2, na.rm = TRUE))
 
 errors_VAR_cv_unemp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_name,
-                         h = 12, X = X, Y = Y, X_slow = X_slow, K = 1, i_name = i_name, use_VAR = T, 
+                         h = 12, X = X, Y = Y , K = 1, i_name = i_name, use_VAR = T, 
                          initial = 200)
 res_VAR_unemp <- sqrt(colMeans(errors_VAR_cv_unemp^2, na.rm = TRUE))
 
@@ -211,12 +208,12 @@ y <- Y_gdp[,2]
 ### forecast gdp
 source("my_tsCV.R")
 errors_FAVAR_cv_gdp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_name,
-                                 h = 12, X = X, Y = Y_gdp, X_slow = X_slow, K = 2, i_name = i_name, 
+                                 h = 12, X = X, Y = Y_gdp , K = 2, i_name = i_name, 
                                  initial = 144)
 res_FAVAR_gdp <- sqrt(colMeans(errors_FAVAR_cv_gdp^2, na.rm = TRUE))
 
 errors_VAR_cv_gdp <- my_tsCV(y = y, forecastfunction = fore_FAVAR, y_name=y_name,
-                             h = 12, X = X, Y = Y_gdp, X_slow = X_slow, K = 1, i_name = i_name, 
+                             h = 12, X = X, Y = Y_gdp , K = 1, i_name = i_name, 
                              use_VAR = T, initial = 144)
 res_VAR_gdp <- sqrt(colMeans(errors_VAR_cv_gdp^2, na.rm = TRUE))
 
