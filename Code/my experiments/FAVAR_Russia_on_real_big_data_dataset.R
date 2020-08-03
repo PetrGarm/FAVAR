@@ -65,7 +65,7 @@ T <- dim(Y)[1]
 
 # cpi
 errors_FAVAR_cv <- my_tsCV(y = Y[,2], forecastfunction = fore_FAVAR, y_name="aRUCPI_slow",
-                           h = 12, X = X, Y = Y, X_slow = X_slow, K = 1, i_name = "RUCBIR=ECI", 
+                           h = 12, X = X, Y = Y, K = 1, i_name = "RUCBIR=ECI", 
                            initial = 200)
 res_FAVAR <- sqrt(colMeans(errors_FAVAR_cv^2, na.rm = TRUE))
 
