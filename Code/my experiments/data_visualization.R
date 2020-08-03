@@ -9,6 +9,7 @@ library("tsibbledata")
 library("dplyr")
 library("ggplot2")
 library("lubridate")
+library("viridis")
 
 source("FAVAR_CV.R")
 source("my_tsCV.R")
@@ -226,4 +227,15 @@ df_unemp = data.frame(k=seq(0,5), sum_rmse=results_unemp)
 ggplot(data=df_unemp, aes(x=k, y=sum_rmse)) + geom_point(shape=15, size=3) + geom_line() + labs(x='K', y='Sum of RMSE') +
   ggtitle("Unemployment rate forecast error, Russia")
 
+### Different models
+res_models <- data.frame(ts_name = rep(c("CPI", "GDP", "Unemployment"), each=5), 
+                         model=rep(names(rowSums(results))),
+                         rmse_sum=
+                           c(rowSums(results), rowSums(results_gdp), rowSums(results_unemp)))
 
+res_models$ts_name <- as.factor(res_models$ts_name)
+ggplot(data=res_models, aes(x=ts_name, y=rmse_sum, fill=model)) +
+  geom_bar(stat="identity", position=position_dodge(), colour="black") + 
+  scale_fill_brewer(palette="RdBu") + 
+  theme_minimal() + 
+  facet_wrap(~ts_name, nrow=1, scales = "free") + labs(y="Sum of RMSE", x="") 
