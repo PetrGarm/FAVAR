@@ -62,7 +62,7 @@ print(colnames(Y))
 T <- dim(Y)[1]
 
 # cpi
-y_hat <- fore_FAVAR(X=X, Y=Y, K=1, y_name="aRUCPI_slow", y=Y, h=2)
+y_hat <- fore_FAVAR(X=X, Y=Y, K=1, y_name="aRUCPI_slow", h=2)
 y_hat$forecast[['aRUCPI_slow']]$mean
 errors_FAVAR_cv <- my_tsCV(y = Y, forecastfunction = fore_FAVAR, y_name="aRUCPI_slow",
                            h = 12, X = X, Y = Y, K = 1, 

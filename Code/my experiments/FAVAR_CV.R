@@ -3,7 +3,7 @@ library("forecast")
 library("vars")
 library("lmtest")
 
-fore_FAVAR <- function(X, Y, K, y_name, h, y, use_VAR = F){
+fore_FAVAR <- function(X, Y, K, y_name, h, y=Y[,y_name], use_VAR = F){
   start <- start(X)
   frequency <- frequency(X)
   X = X[1:length(y),]
