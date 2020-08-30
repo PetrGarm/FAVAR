@@ -7,7 +7,7 @@ fore_FAVAR <- function(X, Y, K, y_name, h, y, use_VAR = F){
   start <- start(X)
   frequency <- frequency(X)
   X = X[1:length(y),]
-  Y = Y[1:length(y),]
+  Y = Y[1:length(y),,drop=FALSE]
   
   N = dim(X)[2]
   M = dim(Y)[2]

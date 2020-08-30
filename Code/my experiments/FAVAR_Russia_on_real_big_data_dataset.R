@@ -49,19 +49,22 @@ for (i in 1:N) {
 ts <- na.omit(ts)
 
 y_names <- c("aRUCPI_slow", "RUCBIR=ECI")
+y_names <- c("aRUCPI_slow")
 #y_names <- c("aRUCPI_slow", "RUCBIR=ECI", "RUUNR=ECI_slow")
 y_index <- seq(N)[colnames(ts) %in% y_names]
 
 '%not_in%' <- Negate('%in%')
 x_index <- which(seq(N) %not_in% y_index)
 
-Y <- ts[,y_index]
+Y <- ts[,y_index, drop=FALSE]
 X <- ts[,x_index]
 print(colnames(Y))
 T <- dim(Y)[1]
 
 # cpi
-errors_FAVAR_cv <- my_tsCV(y = Y[,2], forecastfunction = fore_FAVAR, y_name="aRUCPI_slow",
+y_hat <- fore_FAVAR(X=X, Y=Y, K=1, y_name="aRUCPI_slow", y=Y, h=2)
+y_hat$forecast[['aRUCPI_slow']]$mean
+errors_FAVAR_cv <- my_tsCV(y = Y, forecastfunction = fore_FAVAR, y_name="aRUCPI_slow",
                            h = 12, X = X, Y = Y, K = 1, 
                            initial = 200)
 res_FAVAR <- sqrt(colMeans(errors_FAVAR_cv^2, na.rm = TRUE))
