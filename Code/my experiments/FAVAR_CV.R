@@ -1,9 +1,9 @@
-library("tidyverse")
-library("forecast")
-library("vars")
-library("lmtest")
-
 fore_FAVAR <- function(X, Y, K, y_name, h, y=Y[,y_name], use_VAR = F){
+  library("tidyverse")
+  library("forecast")
+  library("vars")
+  library("lmtest")
+  
   start <- start(X)
   frequency <- frequency(X)
   X = X[1:length(y),]
