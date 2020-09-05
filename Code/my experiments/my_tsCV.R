@@ -1,4 +1,4 @@
-my_tsCV <- function(y, forecastfunction, y_name, h=1, window=NULL, xreg=NULL, initial=0, ...) {
+my_tsCV <- function(Y, forecastfunction, y_name, y=Y[,y_name], h=1, window=NULL, xreg=NULL, initial=0, ...) {
   y_name <- sub("=", '.', y_name)
   y <- as.ts(y)
   n <- length(y)
@@ -27,7 +27,7 @@ my_tsCV <- function(y, forecastfunction, y_name, h=1, window=NULL, xreg=NULL, in
     print(paste0(n - i,' iterations left'))
     if (is.null(xreg)) {
       fc <- try(suppressWarnings(
-        forecastfunction(y_subset, y_name = y_name, h = h, ...)
+        forecastfunction(y_subset, Y=Y, y_name = y_name, h = h, ...)
       ), silent = TRUE)
     }
     else {
@@ -37,7 +37,7 @@ my_tsCV <- function(y, forecastfunction, y_name, h=1, window=NULL, xreg=NULL, in
                        ifelse(i - window >= 0L, i - window + 1L, stop("small window")))
       ))
       fc <- try(suppressWarnings(
-        forecastfunction(y_subset, y_name = y_name, h = h, xreg = xreg_subset, ...)
+        forecastfunction(y_subset, Y=Y, y_name = y_name, h = h, xreg = xreg_subset, ...)
       ), silent = TRUE)
     }
     if (!is.element("try-error", class(fc))) {
