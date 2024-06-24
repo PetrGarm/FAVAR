@@ -65,8 +65,19 @@ forecast_result <- fore_FAVAR(X, Y, K, y_name, h)
 
 # Display forecast results
 print(forecast_result)
-
 ```
+
+## Repository Structure
+
+This repository is organized into the following directories:
+
+- `Code`: Contains the R scripts and code implementations
+- `Diploma`: Includes any diploma-related documents and resources
+- `Literature`: Stores research papers, articles, and other relevant literature
+- `Project Proposals`: Contains project proposal documents and related resources
+- `plots`: Stores plot images generated from the analysis
+
+## Dependencies
 
 The following R packages are required to run the FAVAR implementation:
 
