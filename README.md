@@ -84,4 +84,3 @@ Contributions to this repository are welcome. If you have any improvements, bug 
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
-...
